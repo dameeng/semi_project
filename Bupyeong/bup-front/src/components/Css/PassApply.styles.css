@@ -1,0 +1,126 @@
+
+/* 페이지 전체 컨테이너 규격 */
+.form-container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Malgun Gothic', sans-serif;
+}
+
+/* 상단 신청자 ID 바 */
+.user-info-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background-color: #f1f3f5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.info-label { color: #666; font-weight: bold; }
+.info-value { color: #2c3e50; font-weight: bold; }
+
+/* 하단 안내 텍스트 스타일 */
+.helper-text {
+  font-size: 12px;
+  color: #888;
+  margin-top: 6px;
+}
+
+/* 입력 폼 공통 박스 */
+.border-box {
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 16px 20px;
+  background-color: #fff;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.box-label {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.border-box input[type="text"],
+.border-box input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* 비활성화(:disabled)된 input창 배경색 변경 */
+.border-box input:disabled {
+  background-color: #f1f3f5;
+  color: #555;
+}
+
+/* 날짜 선택 영역 레이아웃 (나란히 배치) */
+.date-area {
+  display: flex;
+  gap: 20px;
+}
+
+.date-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 안내사항 박스 */
+.notice-area {
+  margin: 30px 0 20px 0;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #666;
+}
+
+.notice-area h3 {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.notice-area p { margin: 4px 0; }
+
+/* 동의 체크박스 라벨 */
+.agree-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 신청 버튼 스타일 */
+.btn-area {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.btn-apply {
+  width: 100%;
+  padding: 14px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-apply:hover {
+  background-color: #1a252f;
+}

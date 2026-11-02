@@ -1,0 +1,208 @@
+
+/* ==================== 주차장 정보 카드 ==================== */
+.parking-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 30px auto;
+  padding: 22px;
+  border: 1px solid #e2d2bd;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 9px 24px rgba(72,48,29,.08);
+}
+
+.parking-img {
+  flex-shrink: 0;
+}
+
+.parking-img img {
+  width: 230px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.parking-info {
+  flex: 1;
+  margin-left: 25px;
+}
+
+.parking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.parking-header h3 {
+  margin: 0;
+}
+
+.parking-info p {
+  margin: 0 0 15px;
+  color: #666;
+}
+
+.time {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.detail-btn {
+  padding: 8px 18px;
+  color: #fff !important;
+  border: 1px solid #55771f !important;
+  background: #55771f !important;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 800;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .15);
+}
+
+.detail-btn:hover {
+  color: #fff !important;
+  background: #3d5918 !important;
+  border-color: #3d5918 !important;
+}
+
+/* ==================== 이미지 모달 (Teleport 대상) ==================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-box {
+  position: relative;
+  display: inline-block;
+  max-width: 85vw;
+  max-height: 85vh;
+}
+
+.modal-img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ==================== 정기권 신청 안내 & 테이블 ==================== */
+.apply-info {
+  width: 100%;
+  margin: 0 auto;
+}
+.pass-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.pass-summary-grid article{display:flex;align-items:center;gap:14px;padding:19px;background:#fff;border:1px solid #e4d5c2;border-radius:17px;box-shadow:0 8px 22px rgba(72,48,29,.07)}
+.summary-icon{display:grid;place-items:center;width:48px;height:48px;font-size:1.55rem;background:#eef4df;border-radius:14px}
+.pass-summary-grid small{display:block;margin-bottom:3px;color:#806d5e;font-weight:700}.pass-summary-grid strong{color:#523824;font-size:1.08rem}
+.section-heading{margin:30px 0 18px;text-align:left}.section-heading span{color:#668431;font-size:.72rem;font-weight:900;letter-spacing:.15em}.section-heading h2{margin:4px 0;color:#523824;font-weight:900}.section-heading p{color:#806d5e}
+
+.info-box {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #e1d0bb !important;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(72,48,29,.08);
+}
+
+.info-box th,
+.info-box td {
+  border: 0;
+  border-bottom: 1px solid #eee3d5;
+  padding: 18px 20px !important;
+}
+
+.info-box th {
+  width: 190px;
+  color: #fff !important;
+  background: #523824 !important;
+  text-align: left;
+  font-weight: 800;
+}
+.info-box tr:last-child th,.info-box tr:last-child td{border-bottom:0}.info-box td{background:#fffdf8 !important}.info-box tr:hover td{background:#f3f7e9 !important}
+.table-icon{display:inline-grid;place-items:center;width:34px;height:34px;margin-right:9px;background:rgba(255,255,255,.12);border-radius:10px;vertical-align:middle}
+.info-main,.date-highlight{display:block;color:#45651f;font-size:1.02rem}.info-box td small{display:block;margin-top:4px;color:#8a7564}
+.fee-badges{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;text-align:center}.fee-badges span{padding:8px 12px;color:#62452f;background:#f4ecdf;border:1px solid #e1d0bb;border-radius:999px;font-weight:700}.fee-badges b{color:#55771f}
+
+/* 유의사항 및 로그인 안내 박스 */
+.notice-box {
+  border: 1px solid #b8c98e;
+  border-left: 6px solid #668431;
+  padding: 20px;
+  margin-top: 20px;background:#f5f8ec;border-radius:15px;
+}
+
+.notice-box h3 {
+  margin-top: 0;color:#45651f;font-weight:900;
+}
+
+.notice-list {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.notice-login {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+}
+
+/* 하단 버튼 */
+.btn-area {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.btn-apply {
+  padding: 14px 48px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.notice-list li:first-child{margin-bottom:7px;color:#523824;font-size:1rem}.notice-list li:not(:first-child){position:relative;padding-left:7px;color:#6d5a4c}
+.pass-steps{display:flex;align-items:center;justify-content:center;gap:13px;padding:22px;background:#f6efe3;border:1px solid #eadcc9;border-radius:17px}
+.pass-steps div{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:110px}.pass-steps b{display:grid;place-items:center;width:38px;height:38px;color:#fff;background:#55771f;border-radius:50%}.pass-steps span{color:#523824;font-weight:800}.pass-steps i{color:#9d856f;font-size:2rem;font-style:normal}
+@media(max-width:700px){.pass-summary-grid{grid-template-columns:1fr}.parking-card{align-items:flex-start;flex-direction:column}.parking-img,.parking-img img{width:100%}.parking-info{width:100%;margin:16px 0 0}.pass-steps{align-items:stretch;flex-direction:column}.pass-steps i{transform:rotate(90deg);align-self:center}}
+@media(max-width:600px){.info-box th,.info-box td{display:block;width:100%!important}.info-box th{border-bottom:0}.fee-badges{flex-direction:column}.fee-badges span{border-radius:10px}}

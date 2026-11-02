@@ -1,0 +1,346 @@
+/* ========================================
+   로그인 전체 박스
+======================================== */
+
+.login-wrap {
+  width: 540px !important;
+  max-width: calc(100% - 30px) !important;
+
+  margin: 20px auto !important;
+  padding: 18px !important;
+
+  background: #fffdf8 !important;
+  border: 1px solid #e5d5c1 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 25px rgba(72, 48, 29, 0.08) !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* ========================================
+   로그인 테이블
+======================================== */
+
+.login-wrap.login-wrap table {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  margin: 0 auto !important;
+
+  overflow: visible !important;
+  background: white !important;
+
+  border: 1px solid #dfcfbb !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 14px !important;
+
+  table-layout: auto !important;
+  text-align: center !important;
+}
+
+
+/* ========================================
+   Login 제목
+======================================== */
+
+.login-wrap.login-wrap thead th {
+  height: 46px !important;
+  padding: 8px !important;
+
+  color: white !important;
+  background: #523824 !important;
+  border-color: #704b35 !important;
+
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+}
+
+
+/* ========================================
+   아이디·비밀번호 행
+======================================== */
+
+.login-wrap.login-wrap tbody tr:not(:last-child) th,
+.login-wrap.login-wrap tbody tr:not(:last-child) td {
+  height: 56px !important;
+  padding: 10px !important;
+
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+}
+
+
+/* ========================================
+   왼쪽 갈색 칸
+======================================== */
+
+.login-wrap.login-wrap tbody th {
+  width: 100px !important;
+  min-width: 100px !important;
+  max-width: 100px !important;
+
+  padding: 8px !important;
+
+  color: white !important;
+  background: #61432e !important;
+  border-color: #795944 !important;
+
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+
+/* ========================================
+   입력창이 들어가는 칸
+======================================== */
+
+.login-wrap.login-wrap td.input-cell.input-cell {
+  position: relative !important;
+
+  width: auto !important;
+  overflow: visible !important;
+
+  background: white !important;
+  text-align: left !important;
+}
+
+
+/* 입력칸에 커서를 올려도 배경색 유지 */
+.login-wrap.login-wrap tbody tr:hover td.input-cell.input-cell {
+  background: white !important;
+  background-color: white !important;
+}
+
+
+/* ========================================
+   아이디·비밀번호 입력창 크기 통일
+======================================== */
+
+.login-wrap.login-wrap
+td.input-cell.input-cell
+input.input-row.input-row {
+  display: block !important;
+
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+
+  margin: 0 !important;
+  padding: 5px 10px !important;
+
+  color: #493a30 !important;
+  background: white !important;
+
+  border: 1px solid #d9c9b6 !important;
+  border-radius: 9px !important;
+
+  box-sizing: border-box !important;
+
+  font-size: 13px !important;
+  text-align: center !important;
+}
+
+
+/* ========================================
+   비밀번호 입력창 위치
+======================================== */
+
+.login-wrap.login-wrap
+td.input-cell.input-cell
+> input.input-row.input-row {
+  margin-left: 10px !important;
+  margin-right: 0 !important;
+}
+
+
+/* ========================================
+   아이디 입력창 영역
+======================================== */
+
+.login-wrap.login-wrap .inputtext {
+  position: relative !important;
+
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+
+  margin: 0 0 0 10px !important;
+}
+
+
+/* 아이디 입력창 자체에는 추가 여백 적용하지 않음 */
+.login-wrap.login-wrap
+.inputtext
+> input.input-row.input-row {
+  margin: 0 !important;
+}
+
+
+/* ========================================
+   ID 저장 영역
+======================================== */
+
+.login-wrap.login-wrap .inputtext label {
+  position: absolute !important;
+  top: 50% !important;
+  left: calc(100% + 4px) !important;
+  z-index: 20 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+
+  margin: 0 !important;
+
+  color: #61432e !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  transform: translateY(-50%) !important;
+}
+
+
+/* ========================================
+   ID 저장 체크박스
+======================================== */
+
+.login-wrap.login-wrap
+.inputtext
+input[type="checkbox"] {
+  position: static !important;
+  display: inline-block !important;
+
+  width: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+
+  height: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  appearance: auto !important;
+  -webkit-appearance: checkbox !important;
+
+  accent-color: #55771f !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  flex: 0 0 18px !important;
+}
+
+
+/* ========================================
+   하단 버튼 영역
+======================================== */
+
+.login-wrap.login-wrap
+tbody tr:last-child
+td.button-container {
+  height: 64px !important;
+  padding: 12px !important;
+
+  background: #fffdf8 !important;
+  background-color: #fffdf8 !important;
+
+  text-align: center !important;
+}
+
+
+/* 하단 영역에 커서를 올려도 배경색 유지 */
+.login-wrap.login-wrap
+tbody tr:last-child:hover
+td.button-container {
+  background: #fffdf8 !important;
+  background-color: #fffdf8 !important;
+}
+
+
+/* ========================================
+   로그인·회원가입·ID 찾기 버튼
+======================================== */
+
+.login-wrap.login-wrap .button-container button {
+  padding: 7px 12px !important;
+  margin: 3px !important;
+
+  color: white !important;
+
+  background: #523824 !important;
+  background-color: #523824 !important;
+
+  border: 1px solid #523824 !important;
+  border-color: #523824 !important;
+  border-radius: 8px !important;
+
+  font-size: 12px !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ========================================
+   버튼에 커서를 올린 상태
+======================================== */
+
+.login-wrap.login-wrap .button-container button:hover {
+  color: white !important;
+
+  background: #523824 !important;
+  background-color: #523824 !important;
+
+  border-color: #523824 !important;
+
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+/* 버튼 클릭 및 포커스 상태도 동일하게 유지 */
+.login-wrap.login-wrap .button-container button:active,
+.login-wrap.login-wrap .button-container button:focus,
+.login-wrap.login-wrap .button-container button:focus-visible {
+  color: white !important;
+
+  background: #523824 !important;
+  background-color: #523824 !important;
+
+  border-color: #523824 !important;
+
+  outline: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+/* 아이디 행과 비밀번호 행 사이 구분선 */
+.login-wrap.login-wrap tbody tr:first-child th,
+.login-wrap.login-wrap tbody tr:first-child td {
+  border-bottom: 1px solid #dfcfbb !important;
+}

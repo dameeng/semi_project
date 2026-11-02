@@ -1,0 +1,108 @@
+
+.faq-page { width: 100%; text-align: center; }
+h2 { margin-top: 30px; }
+.top-menu { margin: 20px 0; }
+.admin-menu { width: 90%; width: 100%;
+    max-width: 1180px; margin: 20px auto 5px; text-align: right; }
+.bbslist { width: 100%; display: flex; justify-content: center; }
+.table.table-hover { width: 90%; width: 100%;
+    max-width: 1180px; margin: 30px auto 10px; border-collapse: collapse; border: 1px solid #e4d5c2; }
+.table.table-hover th, .table.table-hover td { padding: 10px; border: 1px solid #bbb; text-align: center; }
+.faq-title { text-align: left !important; cursor: pointer; }
+.faq-title:hover { text-decoration: underline; }
+button { margin: 3px; padding: 7px 12px; cursor: pointer; }
+
+/* 하단 정렬 영역 (페이징 + 검색) */
+.bottom-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0 40px;
+}
+
+/* 페이징 버튼 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.pagination button {
+  margin: 0 3px;
+  padding: 5px 10px;
+}
+.pagination button.active {
+  background-color: #55771f;
+  color: white;
+  border: 1px solid #55771f;
+}
+
+/* 하단 검색창 */
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-box select,
+.search-box input {
+  padding: 6px 10px;
+  margin-right: 5px;
+}
+.faq-page .search-box input.form-control {
+  width: 520px !important;
+  max-width: 520px !important;
+  flex: 0 1 520px;
+}
+.faq-page .search-box select.form-select {
+  width: 110px !important;
+  padding-right: 32px !important;
+  appearance: none !important;
+  background-color: #fff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23523824' d='M1 1l5 5 5-5z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 11px center !important;
+  background-size: 12px 8px !important;
+}
+.btn-search {
+  background-color: #55771f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  min-width: 64px;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .faq-page .search-box input.form-control {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+.btn-reset {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 82px;
+  min-width: 82px;
+  height: 34px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+.faq-page { max-width: 1050px; margin: 0 auto; padding: 28px; background: #fffdf8 !important; border: 1px solid #e6d7c4; border-radius: 22px; box-shadow: 0 14px 38px rgba(72,48,29,.1); }
+.faq-page > h2 { margin: -28px -28px 25px !important; padding: 32px 20px; color: #fff !important; background: linear-gradient(135deg,#355b25,#688634); border-radius: 22px 22px 40px 40px; font-weight: 900; }
+.table.table-hover { width: 100%; max-width: none; overflow: hidden; border: 1px solid #e4d5c2; border-collapse: separate; border-spacing: 0; border-radius: 14px; }
+.table.table-hover th { color: #fff; background: #523824 !important; border-color: #75543e; }
+.table.table-hover td { border-color: #eee3d5; }
+.table.table-hover tbody tr:hover td { background: #f0f5e7; }
+.faq-title { color: #3e3027; font-weight: 700; }
+.faq-title:hover { color: #55771f; }
+.bottom-area { padding: 16px; background: #f6efe3; border: 1px solid #eadcc9; border-radius: 14px; }
+.pagination button.active, .btn-search { background: #55771f; border-color: #55771f; }
+.btn-reset { background: #76543c; }

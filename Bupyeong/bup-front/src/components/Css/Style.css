@@ -1,0 +1,674 @@
+/* ========================================
+   CSS 변수
+======================================== */
+
+:root {
+  --text: #49372b;
+  --text-heading: #58341e;
+  --background: #fbf8f2;
+  --border: #e5d8c7;
+  --accent: #55771f;
+  --forest: #55771f;
+  --forest-dark: #365015;
+  --forest-soft: #e8f0d7;
+  --pine-brown: #58341e;
+  --caramel: #a96e36;
+  --cream: #fff9ed;
+
+  font-family:
+    "Pretendard",
+    "Noto Sans KR",
+    "Malgun Gothic",
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--text);
+  background: radial-gradient(circle at 10% 0%, rgba(241, 223, 185, .48), transparent 28rem), var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   전체 요소 초기화
+======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  color: var(--text);
+  background-color: var(--background);
+
+  overflow-x: hidden;
+}
+
+/* ========================================
+   Vue 앱 전체 영역
+======================================== */
+
+#app {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+}
+
+/* ========================================
+   기본 태그 설정
+======================================== */
+
+header,
+nav,
+main,
+footer,
+section,
+article,
+aside {
+  display: block;
+}
+
+header,
+nav,
+main,
+footer {
+  width: 100%;
+  min-width: 0;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: var(--text-heading);
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* 마스코트 공통 페이지 테마 */
+.page-layout:not(.is-home) > :last-child {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--border);
+  border-radius: 0 22px 22px 0;
+  box-shadow: 0 12px 32px rgba(88,52,30,.08);
+}
+.page-layout:not(.is-home):not(.has-sidebar) > :last-child { border-radius: 22px; }
+.page-layout:not(.is-home) h1,
+.page-layout:not(.is-home) h2,
+.page-layout:not(.is-home) h3 { color: var(--pine-brown); font-weight: 800; letter-spacing: -.035em; }
+.page-layout:not(.is-home) h1::after,
+.page-layout:not(.is-home) > :last-child > h2:first-child::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 5px;
+  margin: 10px auto 20px;
+  background: var(--forest);
+  border-radius: 999px;
+}
+.page-layout:not(.is-home) .card { border-color: var(--border); border-radius: 16px; box-shadow: 0 8px 22px rgba(88,52,30,.07); }
+.page-layout:not(.is-home) table { width: 100%; overflow: hidden; background: #fff; border-color: var(--border); border-radius: 14px; }
+.page-layout:not(.is-home) table th { color: #fff; background-color: var(--pine-brown) !important; border-color: #704b35 !important; font-weight: 700; }
+.page-layout:not(.is-home) table td { border-color: #eee3d5 !important; }
+.page-layout:not(.is-home) table tbody tr:hover td { background-color: var(--cream); }
+.page-layout:not(.is-home) input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+.page-layout:not(.is-home) select,
+.page-layout:not(.is-home) textarea {
+  max-width: 100%;
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #d9c9b6;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color .2s,box-shadow .2s;
+}
+.page-layout:not(.is-home) input:focus,
+.page-layout:not(.is-home) select:focus,
+.page-layout:not(.is-home) textarea:focus { border-color: #88a550 !important; box-shadow: 0 0 0 .2rem rgba(85,119,31,.15) !important; }
+.page-layout:not(.is-home) button,
+.page-layout:not(.is-home) input[type="button"],
+.page-layout:not(.is-home) input[type="submit"] {
+  color: #fff;
+  background-color: var(--forest);
+  border: 1px solid var(--forest);
+  border-radius: 9px;
+  font-weight: 700;
+  transition: background-color .2s,border-color .2s,transform .2s;
+}
+.page-layout:not(.is-home) button:hover,
+.page-layout:not(.is-home) input[type="button"]:hover,
+.page-layout:not(.is-home) input[type="submit"]:hover { color: #fff; background-color: var(--forest-dark); border-color: var(--forest-dark); transform: translateY(-1px); }
+.page-layout:not(.is-home) .btn-danger,
+.page-layout:not(.is-home) .btn-reject,
+.page-layout:not(.is-home) .btn-outline-danger:hover { background: #a55343; border-color: #a55343; }
+.page-layout:not(.is-home) .pagination .page-link { color: var(--forest-dark); border-color: var(--border); }
+.page-layout:not(.is-home) .pagination .active .page-link { color: #fff; background: var(--forest); border-color: var(--forest); }
+.page-layout:not(.is-home) hr { border-color: #d8c7b1; opacity: .8; }
+
+@media (max-width: 900px) {
+  .page-layout:not(.is-home) > :last-child { padding: 20px 14px; border-radius: 16px; }
+}
+
+/* ========================================
+   게시판 · 공지 · FAQ · 1:1 문의 전용 테마
+======================================== */
+
+#boardlist,
+#boarddetail,
+#boardwrite,
+.notice-page,
+.faq-page,
+.faq-detail,
+.faq-form-page,
+.qna-update {
+  color: var(--text);
+  background: transparent !important;
+}
+
+#boardlist > h2,
+.notice-page > h2,
+.faq-page > h2,
+.faq-detail > h2,
+.faq-form-page > h2,
+.qna-update > h2 {
+  margin-bottom: 28px !important;
+  font-size: clamp(1.65rem, 3vw, 2.15rem) !important;
+  font-weight: 900 !important;
+}
+
+#boardlist .custom-table,
+#boarddetail .table,
+#boardwrite .table,
+.notice-page .table,
+.faq-page .table,
+.faq-detail table,
+.faq-form-page table,
+.qna-update table {
+  overflow: hidden;
+  border: 1px solid #e4d5c2 !important;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  border-radius: 14px;
+  box-shadow: 0 7px 20px rgba(88,52,30,.06);
+}
+
+#boardlist table thead th,
+#boarddetail table th,
+#boardwrite table th,
+.notice-page table thead th,
+.faq-page table thead th,
+.faq-detail table th,
+.faq-form-page table th,
+.qna-update table th {
+  padding: 13px 12px !important;
+  color: #fff !important;
+  background: linear-gradient(135deg,#65432c,#4c2f1d) !important;
+  border-color: #75543e !important;
+}
+
+#boardlist table td,
+#boarddetail table td,
+#boardwrite table td,
+.notice-page table td,
+.faq-page table td,
+.faq-detail table td,
+.faq-form-page table td,
+.qna-update table td {
+  padding: 13px 12px !important;
+  background: #fff !important;
+  border-color: #eee3d5 !important;
+}
+
+#boardlist tbody tr:hover td,
+.notice-page tbody tr:hover td,
+.faq-page tbody tr:hover td {
+  background: #f2f6e9 !important;
+}
+
+#boardlist tbody tr,
+.notice-page tbody tr,
+.faq-page tbody tr {
+  cursor: pointer;
+  transition: background-color .2s, transform .2s;
+}
+
+.search-container,
+.bottom-area,
+.search-box {
+  border-color: #dfcfbb !important;
+  border-radius: 14px !important;
+}
+
+#boardlist .search-container,
+.notice-page .bottom-area,
+.faq-page .bottom-area {
+  padding: 15px !important;
+  background: var(--cream) !important;
+  border: 1px solid #ead9bf;
+}
+
+.admin-menu {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  text-align: right;
+  background: #f3f7ea;
+  border: 1px dashed #afc183;
+  border-radius: 12px;
+}
+
+.button-area,
+#boardwrite .text-center,
+#boarddetail .d-flex.justify-content-end {
+  gap: 8px;
+  margin-top: 22px !important;
+}
+
+#boarddetail .center,
+.faq-detail,
+.faq-form-page,
+.qna-update {
+  max-width: 900px;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+#boarddetail .list-group-item,
+#boarddetail .input-group,
+.faq-detail .content-cell,
+.qna-update textarea {
+  border-color: #e4d5c2 !important;
+  border-radius: 12px !important;
+}
+
+#boarddetail .list-group-item {
+  margin-bottom: 8px;
+  background: #fffdf8;
+}
+
+.page-layout:not(.is-home) .overflow-auto .page-link,
+.page-layout:not(.is-home) .pagination button {
+  min-width: 36px;
+  color: var(--forest-dark) !important;
+  background: #fff !important;
+  border-color: #d9c9b6 !important;
+  border-radius: 8px !important;
+}
+
+.page-layout:not(.is-home) .overflow-auto .active .page-link,
+.page-layout:not(.is-home) .pagination .active,
+.page-layout:not(.is-home) .pagination button.active {
+  color: #fff !important;
+  background: var(--forest) !important;
+  border-color: var(--forest) !important;
+}
+
+@media (max-width: 700px) {
+  #boardlist .custom-table,
+  .notice-page .table,
+  .faq-page .table { font-size: .82rem; }
+
+  #boardlist table th,
+  #boardlist table td,
+  .notice-page table th,
+  .notice-page table td,
+  .faq-page table th,
+  .faq-page table td { padding: 9px 6px !important; }
+}
+
+/* ========================================
+   태블릿
+======================================== */
+
+@media (max-width: 900px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* ========================================
+   휴대폰
+======================================== */
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 13px;
+  }
+}
+
+/* 주차 · 정기권 전용 마스코트 테마 */
+/* ========================================
+   마이페이지 전체 전용 테마
+======================================== */
+.route-my .route-panel>*,.route-myupdate .route-panel>*,.route-mycar .route-panel>*,.route-mypass .route-panel>*,.route-myfaqlist .route-panel>*{max-width:1000px!important;background:linear-gradient(180deg,#fffdf8,#fff)!important}
+.route-my table,.route-myupdate table,.route-mycar table,.route-mypass table,.route-myfaqlist table{width:100%!important;max-width:none!important;margin:18px 0!important}
+.route-my .profile-summary,.route-myupdate .update-intro,.route-mycar .header-section,.route-mypass #title1,.route-myfaqlist>*>h2{position:relative}
+
+/* 내 정보 */
+.route-my .profile-table-card{padding:12px 22px 22px!important;border-radius:20px!important}
+.route-my table tbody th{width:210px!important}.route-my table tbody td{font-weight:700!important}.route-my table tbody tr:last-child td{padding:22px!important;background:#f6efe3!important}.route-my table .btn{min-width:150px;padding:11px 22px!important}
+
+/* 내 정보 수정: 체크박스를 선택 칩으로 표시 */
+.route-myupdate table tbody th{width:170px!important}.route-myupdate table tbody td:nth-child(2){color:#76543c!important;font-weight:700!important;background:#fcf8f1!important}.route-myupdate input[type=checkbox]{position:absolute;opacity:0;width:1px!important;height:1px!important}.route-myupdate input[type=checkbox]+label{display:inline-flex;margin:3px;padding:7px 11px;color:#6f5b4c;background:#f3ecdf;border:1px solid #dccbb5;border-radius:999px;cursor:pointer;font-weight:700}.route-myupdate input[type=checkbox]:checked+label{color:#fff;background:#55771f;border-color:#55771f;box-shadow:0 4px 10px rgba(85,119,31,.2)}.route-myupdate table tbody tr:last-child td{padding:22px!important;background:#f6efe3!important}
+
+/* 내 차량/정산 */
+.route-mycar .parking-container{max-width:none!important;margin:0!important;padding:0!important}.route-mycar .header-section{margin-bottom:24px!important;padding:22px;background:#f4f7e9;border:1px solid #c6d4a3;border-radius:17px}.route-mycar .header-section h1{color:#523824!important;font-weight:900!important}.route-mycar #card1{gap:16px!important}.route-mycar #card1 table{margin:0!important}.route-mycar #finalfeetable .highlight-row th,.route-mycar #finalfeetable .highlight-row td{color:#fff!important;background:#55771f!important;font-size:1.08rem!important}.route-mycar #finalfeetable .highlight-row td{font-size:1.25rem!important;font-weight:900!important}
+
+/* 내 정기권: 티켓형 카드 */
+.route-mypass .my-pass-page{max-width:850px!important}.route-mypass #title1{text-align:center!important;color:#523824!important;font-weight:900!important}.route-mypass .pass-status-card{position:relative;overflow:hidden;padding:28px!important;border-radius:22px!important}.route-mypass .pass-status-card::before,.route-mypass .pass-status-card::after{content:"";position:absolute;top:50%;width:28px;height:28px;background:#fffdf8;border-radius:50%;transform:translateY(-50%)}.route-mypass .pass-status-card::before{left:-14px}.route-mypass .pass-status-card::after{right:-14px}.route-mypass table tbody th{width:220px!important}
+
+/* 내 문의 */
+.route-myfaqlist .myfaq-container{max-width:none!important;margin:0!important;padding:0!important}.route-myfaqlist .subtitle{padding:13px 16px;color:#6e5c4d!important;background:#f4f7e9;border-left:5px solid #55771f;border-radius:0 12px 12px 0}.route-myfaqlist .faq-detail-card{border-color:#dfcfbb!important;border-radius:20px!important;box-shadow:0 10px 28px rgba(72,48,29,.09)!important}.route-myfaqlist .section-box{background:#fcf8f1!important;border-radius:14px!important}.route-myfaqlist .reply-box{background:#eef4df!important;border-left-color:#55771f!important}.route-myfaqlist .waiting-box{background:#fff2dd!important;border-left-color:#c18335!important}.route-myfaqlist .faq-row{cursor:pointer}.route-myfaqlist .title-td{color:#523824!important;font-weight:800!important}
+
+@media(max-width:700px){.route-my .profile-summary{align-items:flex-start;flex-direction:column}.route-mycar #card1{flex-direction:column}.route-mypass table tbody th{width:150px!important}}
+
+/* ========================================
+   전체 페이지 테이블 · 목록 디자인 시스템
+======================================== */
+.page-layout:not(.is-home) .route-panel { overflow-x:auto; }
+.page-layout:not(.is-home) .route-panel table {
+  width:100%!important; margin:18px 0!important; overflow:hidden!important;
+  color:#493a30!important; background:#fff!important; border:1px solid #dfcfbb!important;
+  border-collapse:separate!important; border-spacing:0!important; border-radius:16px!important;
+  box-shadow:0 10px 27px rgba(72,48,29,.08)!important;
+}
+.page-layout:not(.is-home) .route-panel table thead th {
+  padding:15px 13px!important; color:#fff!important;
+  background:linear-gradient(135deg,#65452f,#4c301f)!important;
+  border:0!important; border-right:1px solid rgba(255,255,255,.12)!important;
+  font-size:.9rem!important; font-weight:800!important; letter-spacing:.015em!important; vertical-align:middle!important;
+}
+.page-layout:not(.is-home) .route-panel table thead th:last-child { border-right:0!important; }
+.page-layout:not(.is-home) .route-panel table tbody th {
+  width:180px; padding:15px 16px!important; color:#fff!important; text-align:left!important;
+  background:#61432e!important; border-color:#75543e!important; font-weight:800!important; vertical-align:middle!important;
+}
+.page-layout:not(.is-home) .route-panel table tbody td {
+  padding:14px 13px!important; color:#59483b!important; background:#fff!important;
+  border-color:#eee3d5!important; vertical-align:middle!important;
+}
+.page-layout:not(.is-home) .route-panel table tbody tr:nth-child(even) td { background:#fcf8f1!important; }
+.page-layout:not(.is-home) .route-panel table tbody tr { transition:transform .18s ease,box-shadow .18s ease; }
+.page-layout:not(.is-home) .route-panel table tbody tr:hover td { background:#eef4df!important; }
+.page-layout:not(.is-home) .route-panel table tbody tr:last-child th,
+.page-layout:not(.is-home) .route-panel table tbody tr:last-child td { border-bottom:0!important; }
+.page-layout:not(.is-home) .route-panel table td strong { color:#3f5e1d; }
+.page-layout:not(.is-home) .route-panel table td[colspan] { padding:34px 15px!important; color:#8b7869!important; text-align:center!important; background:#fffdf8!important; }
+.page-layout:not(.is-home) .route-panel table input,
+.page-layout:not(.is-home) .route-panel table select,
+.page-layout:not(.is-home) .route-panel table textarea { width:100%!important; margin:0!important; background:#fffdf9!important; }
+.page-layout:not(.is-home) .route-panel table .btn { margin:2px!important; white-space:nowrap; }
+
+/* 상태/분류 표시는 둥근 배지로 통일 */
+.page-layout:not(.is-home) .status-tag,
+.page-layout:not(.is-home) .completed,
+.page-layout:not(.is-home) .waiting,
+.page-layout:not(.is-home) .badge-notice {
+  display:inline-flex!important; align-items:center; justify-content:center; min-height:28px;
+  padding:5px 10px!important; border-radius:999px!important; font-size:.76rem!important; font-weight:900!important;
+}
+.page-layout:not(.is-home) .status-tag.APPROVED,
+.page-layout:not(.is-home) .completed { color:#365a1b!important; background:#e5efd4!important; border:1px solid #bfd19b!important; }
+.page-layout:not(.is-home) .status-tag.PENDING,
+.page-layout:not(.is-home) .waiting { color:#985b21!important; background:#fff0d7!important; border:1px solid #ebc992!important; }
+.page-layout:not(.is-home) .status-tag.REJECTED { color:#8f4034!important; background:#f9e2dd!important; border:1px solid #dfaaa0!important; }
+
+/* 정기권 발매현황의 div형 정보표 */
+.status-container .info-table { overflow:hidden!important; border:1px solid #dfcfbb!important; border-radius:15px!important; box-shadow:0 8px 22px rgba(72,48,29,.07)!important; }
+.status-container .info-row { display:grid!important; grid-template-columns:190px 1fr!important; border-bottom:1px solid #eee3d5!important; }
+.status-container .info-row:last-child { border-bottom:0!important; }
+.status-container .info-label { padding:15px 18px!important; color:#fff!important; background:#61432e!important; font-weight:800!important; }
+.status-container .info-content { padding:15px 18px!important; color:#59483b!important; background:#fffdf8!important; }
+.status-container .info-row:hover .info-content { background:#eef4df!important; }
+
+@media(max-width:700px){
+  .page-layout:not(.is-home) .route-panel table{min-width:680px!important;font-size:.85rem!important}
+  .page-layout:not(.is-home) .route-panel table.table-bordered tbody th{width:145px}
+  .status-container .info-row{grid-template-columns:1fr!important}.status-container .info-label,.status-container .info-content{padding:12px 14px!important}
+}
+
+/* =========================================================
+   FINAL UI SYSTEM — 홈을 제외한 모든 Vue 화면 최종 통일
+========================================================= */
+.route-content {
+  --ui-green:#55771f;--ui-green-dark:#3d5918;--ui-green-soft:#eef4df;
+  --ui-brown:#523824;--ui-brown-light:#76543c;--ui-cream:#fffdf8;
+  --ui-line:#e4d5c2;--ui-muted:#806d5e;--ui-danger:#a55343;--ui-warning:#c18335;
+  color:#493a30;font-family:inherit;
+}
+.route-content .route-panel>*{max-width:1180px!important;margin:0 auto!important;padding:28px!important;background:var(--ui-cream)!important;border:1px solid var(--ui-line)!important;border-radius:22px!important;box-shadow:0 13px 34px rgba(72,48,29,.09)!important}
+.route-content .route-panel h1,.route-content .route-panel h2,.route-content .route-panel h3,.route-content .route-panel h4{color:var(--ui-brown)!important;font-weight:900!important;letter-spacing:-.025em}
+.route-content .route-panel h1{font-size:clamp(1.75rem,3vw,2.35rem)}.route-content .route-panel h2{font-size:clamp(1.4rem,2.5vw,1.9rem)}.route-content .route-panel p{line-height:1.7}
+
+/* 카드·패널·안내 영역 */
+.route-content .route-panel :is(.card,.panel,.section-block,.guide-card,.fee-card,.process-card,.faq-detail-card,.border-box,.parking-card,.notice-login){border:1px solid var(--ui-line)!important;border-radius:17px!important;box-shadow:0 8px 24px rgba(72,48,29,.07)!important}
+.route-content .route-panel :is(.notice-box,.notice-area,.info-banner,.waiting-box){padding:18px!important;background:#f4f7e9!important;border:1px solid #bdcc99!important;border-left:5px solid var(--ui-green)!important;border-radius:14px!important;color:#5d4c40!important}
+.route-content .route-panel :is(.empty-msg,.empty-state){padding:36px 18px!important;color:#968275!important;text-align:center!important;background:#fffaf2!important;border:1px dashed #dccaaf!important;border-radius:13px!important}
+
+/* 모든 폼 요소 */
+.route-content .route-panel :is(input:not([type=checkbox]):not([type=radio]),select,textarea){max-width:100%!important;min-height:42px!important;padding:9px 12px!important;color:#493a30!important;background:#fff!important;border:1px solid #d8c7b1!important;border-radius:10px!important;outline:0!important;transition:border-color .2s,box-shadow .2s!important}
+.route-content .route-panel textarea{min-height:150px!important;resize:vertical}.route-content .route-panel :is(input,select,textarea):focus{border-color:#88a550!important;box-shadow:0 0 0 .2rem rgba(85,119,31,.15)!important}
+.route-content .route-panel :is(input,textarea)::placeholder{color:#aa998c!important}.route-content .route-panel input:disabled,.route-content .route-panel input:read-only{color:#77685c!important;background:#f2ece3!important}
+.route-content .route-panel label{color:#654a39;font-weight:800}.route-content .route-panel .form-check-input{width:1.1em!important;height:1.1em!important;min-height:0!important;padding:0!important}.route-content .route-panel .form-check-input:checked{background-color:var(--ui-green)!important;border-color:var(--ui-green)!important}
+
+/* 모든 버튼·링크 버튼 */
+.route-content .route-panel :is(button,.btn){min-height:40px;padding:8px 17px;color:#fff;background:var(--ui-green);border:1px solid var(--ui-green);border-radius:10px;font-weight:800;box-shadow:none;transition:transform .18s,background .18s,border-color .18s,box-shadow .18s}
+.route-content .route-panel :is(button,.btn):hover{color:#fff;background:var(--ui-green-dark);border-color:var(--ui-green-dark);box-shadow:0 6px 14px rgba(61,89,24,.18);transform:translateY(-1px)}
+.route-content .route-panel :is(button,.btn):disabled{color:#a99a8e!important;background:#eee7dd!important;border-color:#ded3c5!important;box-shadow:none!important;transform:none!important}
+.route-content .route-panel :is(.btn-secondary,.btn-outline-secondary){color:#fff!important;background:var(--ui-brown-light)!important;border-color:var(--ui-brown-light)!important}.route-content .route-panel :is(.btn-danger,.btn-reject,.btn-outline-danger){color:#fff!important;background:var(--ui-danger)!important;border-color:var(--ui-danger)!important}.route-content .route-panel :is(.btn-warning){color:#fff!important;background:var(--ui-warning)!important;border-color:var(--ui-warning)!important}.route-content .route-panel .btn-sm{min-height:32px;padding:5px 10px;font-size:.8rem}
+
+/* 모든 표 */
+.route-content .route-panel table{width:100%!important;max-width:none!important;margin:18px 0!important;color:#493a30!important;background:#fff!important;border:1px solid #dfcfbb!important;border-collapse:separate!important;border-spacing:0!important;border-radius:16px!important;box-shadow:0 9px 25px rgba(72,48,29,.08)!important}
+.route-content .route-panel table thead th{height:52px!important;padding:13px 14px!important;color:#fff!important;text-align:center!important;background:linear-gradient(135deg,#65452f,#4c301f)!important;border:0!important;border-right:1px solid rgba(255,255,255,.12)!important;font-size:.9rem!important;font-weight:900!important;vertical-align:middle!important}.route-content .route-panel table thead th:last-child{border-right:0!important}
+.route-content .route-panel table tbody th{padding:14px 16px!important;color:#fff!important;text-align:left!important;background:#61432e!important;border-color:#795944!important;font-weight:800!important;vertical-align:middle!important}.route-content .route-panel table tbody td{padding:14px 15px!important;color:#57463a!important;background:#fff!important;border-color:#eee3d5!important;vertical-align:middle!important}.route-content .route-panel table tbody tr:nth-child(even) td{background:#fcf8f1!important}.route-content .route-panel table tbody tr:hover td{background:var(--ui-green-soft)!important}.route-content .route-panel table td[colspan]{text-align:center!important}.route-content .route-panel table tbody tr:last-child>*{border-bottom:0!important}
+
+/* 목록·페이지네이션·배지 */
+.route-content .route-panel :is(.list-group,.store-list,.comment-list){overflow:hidden;border:1px solid var(--ui-line)!important;border-radius:14px!important}.route-content .route-panel :is(.list-group-item,.store-item,.comment-item){padding:14px 16px!important;background:#fff!important;border-color:#eee3d5!important;transition:background .18s,transform .18s}.route-content .route-panel :is(.list-group-item,.store-item,.comment-item):hover{background:var(--ui-green-soft)!important}
+.route-content .route-panel .pagination{display:flex;justify-content:center;gap:5px}.route-content .route-panel .pagination :is(button,.page-link){min-width:38px!important;min-height:38px!important;padding:7px 10px!important;color:var(--ui-green-dark)!important;background:#fff!important;border:1px solid #d8c7b1!important;border-radius:9px!important}.route-content .route-panel .pagination .active :is(button,.page-link),.route-content .route-panel .pagination button.active{color:#fff!important;background:var(--ui-green)!important;border-color:var(--ui-green)!important}
+.route-content .route-panel :is(.badge,.status-badge,.status-tag,.completed,.waiting){border-radius:999px!important;font-size:.76rem!important;font-weight:900!important}
+
+/* 관리자·점주 화면도 동일 폭과 구획 */
+.route-admin .route-panel>*,.route-owner .route-panel>*{max-width:1280px!important}.route-admin .route-panel :is(.admin-section,.section,.card),.route-owner .route-panel :is(.owner-section,.section,.card){margin-bottom:18px!important;background:#fff!important}
+
+/* 지도 팝업/모달 */
+.modal-box,.map-modal,.modal-content{border-radius:18px!important;box-shadow:0 20px 55px rgba(38,27,19,.28)!important}.modal-box button,.map-modal button,.modal-content button{border-radius:9px;font-weight:800}
+
+@media(max-width:700px){
+  .route-content .route-panel>*{padding:18px 12px!important;border-radius:17px!important}.route-content .route-panel{overflow-x:auto}.route-content .route-panel table{min-width:680px!important;font-size:.84rem!important}.route-content .route-panel :is(.button-area,.btn-area,.cost-actions){flex-wrap:wrap}.route-content .route-panel :is(.button-area,.btn-area,.cost-actions) .btn{flex:1;min-width:120px}
+}
+
+.page-layout:not(.is-home) > .route-content {
+  max-width:none;margin:0;padding:0;background:transparent;border:0;border-radius:0;box-shadow:none;
+}
+.route-content .route-panel > * {
+  width:100%;max-width:1180px;margin:0 auto;padding:28px;background:#fffdf8;border:1px solid #e5d5c1;border-radius:22px;box-shadow:0 13px 34px rgba(72,48,29,.09);
+}
+.route-content .route-panel > * > h1:first-child,
+.route-content .route-panel > * > h2:first-child { color:var(--pine-brown);font-weight:900; }
+.route-content .route-panel table { overflow:hidden;border-radius:14px;box-shadow:0 7px 20px rgba(72,48,29,.06); }
+.route-content .route-panel .form-control,
+.route-content .route-panel .form-select { min-height:42px;border-color:#d9c8b4;border-radius:10px; }
+.route-content .route-panel textarea.form-control { min-height:180px; }
+.route-content .route-panel .btn { border-radius:10px;font-weight:800; }
+.route-content .route-panel .btn-primary { background:#55771f;border-color:#55771f; }
+.route-content .route-panel .btn-primary:hover { background:#3d5918;border-color:#3d5918; }
+.route-content .route-panel .btn-secondary { background:#76543c;border-color:#76543c; }
+.route-content .route-panel .btn-warning { color:#fff;background:#c18335;border-color:#c18335; }
+.route-content .route-panel .btn-danger { background:#a55343;border-color:#a55343; }
+.route-admin .route-panel > *, .route-owner .route-panel > * { max-width:1180px; }
+
+/* 목록/대시보드가 밋밋하지 않도록 섹션 카드 구획 */
+.route-admin .route-panel table,
+.route-owner .route-panel table,
+.route-my .route-panel table,
+.route-mycar .route-panel table,
+.route-mypass .route-panel table,
+.route-myfaqlist .route-panel table { background:#fff;border:1px solid #e4d5c2; }
+.route-admin .route-panel thead th,
+.route-owner .route-panel thead th,
+.route-my .route-panel thead th,
+.route-mycar .route-panel thead th,
+.route-mypass .route-panel thead th,
+.route-myfaqlist .route-panel thead th { color:#fff!important;background:#523824!important;border-color:#75543e!important; }
+.route-admin .route-panel tbody tr:hover td,
+.route-owner .route-panel tbody tr:hover td,
+.route-my .route-panel tbody tr:hover td,
+.route-mycar .route-panel tbody tr:hover td,
+.route-mypass .route-panel tbody tr:hover td,
+.route-myfaqlist .route-panel tbody tr:hover td { background:#f0f5e7!important; }
+
+@media(max-width:700px){
+  .route-content .route-panel > *{padding:18px 12px;border-radius:17px}.route-content .route-panel{overflow:hidden}
+}
+#div1,.pass-main-page,.parking-guide-wrapper,.form-container,.status-container {
+  width:min(100%,1080px)!important;margin:0 auto!important;padding:30px!important;color:var(--text)!important;
+  background:#fffdf8!important;border:1px solid #e5d5c1!important;border-radius:24px!important;box-shadow:0 16px 42px rgba(72,48,29,.1)!important;
+}
+#div1>h1:first-child,#div1>h2:first-child,.parking-guide-wrapper .page-header,.status-container .header-section,.pass-apply-heading {
+  margin:-30px -30px 28px!important;padding:35px 22px 30px!important;text-align:center!important;color:#fff!important;
+  background:linear-gradient(135deg,#315722,#628331 62%,#91aa50)!important;border-radius:24px 24px 44px 44px!important;box-shadow:0 14px 30px rgba(49,87,34,.16)!important;
+}
+#div1>h1:first-child,#div1>h2:first-child,.parking-guide-wrapper .page-title,.status-container .header-section h1,.pass-apply-heading h1 {color:#fff!important;font-weight:900!important;}
+.pass-apply-heading span{color:#e8f2ca;font-size:.72rem;font-weight:800;letter-spacing:.16em}.pass-apply-heading h1{margin:5px 0!important}
+.pass-apply-heading p,.status-container .header-section p,.parking-guide-wrapper .page-subtitle{margin:0!important;color:rgba(255,255,255,.83)!important}
+#div1 table,.pass-main-page table,.status-container table{width:100%!important;margin:24px auto!important;overflow:hidden!important;border:1px solid #e3d3bf!important;border-collapse:separate!important;border-spacing:0!important;border-radius:15px!important;box-shadow:0 8px 23px rgba(72,48,29,.07)!important}
+#div1 table th,.pass-main-page table th,.status-container table th{padding:14px 12px!important;color:#fff!important;background:#523824!important;border-color:#75543e!important}
+#div1 table td,.pass-main-page table td,.status-container table td{padding:14px 12px!important;background:#fff!important;border-color:#eee3d5!important}
+#div1 table tbody tr:hover td,.pass-main-page table tbody tr:hover td,.status-container table tbody tr:hover td{background:#f0f5e7!important}
+#div1 .btn-primary,.pass-main-page .btn-primary,.form-container .btn-apply,.status-container .btn-primary,.status-container .btn-approve{color:#fff!important;background:#55771f!important;border-color:#55771f!important;border-radius:10px!important;font-weight:800!important}
+#div1 .btn-primary:hover,.pass-main-page .btn-primary:hover,.form-container .btn-apply:hover,.status-container .btn-primary:hover{background:#3d5918!important;transform:translateY(-1px)}
+#div1 button.active-floor{color:#fff!important;background:#523824!important;border-color:#523824!important;box-shadow:0 5px 14px rgba(82,56,36,.22)}
+#div1 .card{background:#fffdf8!important;border-color:#d9c8b4!important;border-radius:17px!important;box-shadow:0 8px 22px rgba(72,48,29,.08)!important}
+#div1 .card.status-available{border-color:#789c43!important;background:#f5faeb!important}#div1 .card.status-occupied{border-color:#ba705f!important;background:#fff6f2!important}
+#div1 .status-available .status-text{color:#55771f!important}#div1 .status-occupied .status-text{color:#a55343!important}
+.pass-main-page .parking-card,.parking-guide-wrapper .guide-card,.parking-guide-wrapper .fee-card,.parking-guide-wrapper .process-card,.form-container .border-box,.status-container .section-block,.status-container .summary-cards .card{background:#fff!important;border:1px solid #e4d5c2!important;border-radius:17px!important;box-shadow:0 8px 24px rgba(72,48,29,.07)!important}
+.parking-guide-wrapper .card-title,.status-container .section-block h2,.pass-main-page .apply-info h2{color:var(--pine-brown)!important;font-weight:900!important}
+.parking-guide-wrapper .notice-box,.pass-main-page .notice-box,.form-container .notice-area,.status-container .notice-box,.status-container .info-banner{background:#f4f7e9!important;border-color:#adbf83!important;border-radius:15px!important}
+.form-container .user-info-bar{color:#fff!important;background:#523824!important;border-radius:13px!important}.form-container .border-box{padding:19px!important}.form-container .box-label{color:#45651f!important;font-weight:800!important}.form-container input{border-color:#d9c8b4!important;border-radius:10px!important}
+.status-container .summary-cards .card:nth-child(1){border-top:5px solid #76543c!important}.status-container .summary-cards .card:nth-child(2){border-top:5px solid #55771f!important}.status-container .summary-cards .card:nth-child(3){border-top:5px solid #d49a43!important}.status-container .card-value{color:#55771f!important;font-weight:900!important}.status-container .btn-reject{color:#fff!important;background:#a55343!important;border-color:#a55343!important;border-radius:9px!important}
+.status-container .summary-cards .card{position:relative;overflow:hidden;padding:24px!important}.summary-card-icon{display:grid;place-items:center;width:46px;height:46px;margin:0 auto 10px;font-size:1.5rem;background:#f1f5e7;border-radius:14px}.status-container .summary-cards .card::after{content:"";position:absolute;width:70px;height:70px;right:-28px;bottom:-32px;background:#edf3df;border-radius:50%}
+.form-container .apply-benefits{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:-10px 0 24px}.form-container .apply-benefits span{padding:7px 12px;color:#45651f;background:#eef4df;border:1px solid #cbd9aa;border-radius:999px;font-size:.82rem;font-weight:800}
+@media(max-width:700px){#div1,.pass-main-page,.parking-guide-wrapper,.form-container,.status-container{padding:18px 12px!important;border-radius:18px!important}#div1>h1:first-child,#div1>h2:first-child,.parking-guide-wrapper .page-header,.status-container .header-section,.pass-apply-heading{margin:-18px -12px 22px!important;border-radius:18px 18px 32px 32px!important}}
+
+/* 최종 마이페이지 표 통일 규칙 - 페이지별 scoped 스타일보다 우선 */
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table {
+  width:100%!important;max-width:none!important;margin:18px 0!important;color:#493a30!important;
+  background:#fff!important;border:1px solid #dfcfbb!important;border-collapse:separate!important;border-spacing:0!important;
+  border-radius:16px!important;box-shadow:0 9px 25px rgba(72,48,29,.08)!important;text-align:center!important;
+}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table thead th {
+  height:54px!important;padding:14px 16px!important;color:#fff!important;text-align:center!important;
+  background:linear-gradient(135deg,#65452f,#4c301f)!important;border:0!important;font-size:1rem!important;font-weight:900!important;
+}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table tbody th {
+  width:190px!important;padding:15px 17px!important;color:#fff!important;text-align:left!important;
+  background:#61432e!important;border-color:#795944!important;font-weight:800!important;white-space:nowrap!important;
+}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table tbody td {
+  min-height:52px!important;padding:15px 17px!important;color:#57463a!important;text-align:left!important;
+  background:#fff!important;border-color:#eee3d5!important;vertical-align:middle!important;
+}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table tbody tr:nth-child(even) td{background:#fcf8f1!important}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table tbody tr:hover td{background:#eef4df!important}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table tbody tr:last-child th,
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table tbody tr:last-child td{border-bottom:0!important}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table input.form-control{height:42px!important;text-align:left!important;background:#fffdf9!important;border:1px solid #d8c7b1!important;border-radius:10px!important}
+:is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table .btn{min-height:40px!important;padding:8px 17px!important;border-radius:10px!important;font-weight:800!important}
+.route-myfaqlist .faq-table tbody td{text-align:center!important}.route-myfaqlist .faq-table .title-td{text-align:left!important}
+.route-mycar #finalfeetable .text-right{text-align:right!important}.route-mycar #finalfeetable .highlight-row th,.route-mycar #finalfeetable .highlight-row td{color:#fff!important;background:#55771f!important}
+.route-myupdate table tbody td:last-child{background:#fffdf8!important}.route-myupdate table tbody tr:hover td:last-child{background:#eef4df!important}
+.page-layout:has(> .route-content.route-myupdate),
+.route-content.route-myupdate,
+.route-content.route-myupdate .route-panel{overflow-x:clip!important;min-width:0!important}
+.route-myupdate .route-panel > table{width:90%!important;min-width:0!important;max-width:900px!important;margin:18px auto!important;table-layout:fixed!important;box-sizing:border-box!important}
+.route-myupdate .route-panel > table input{min-width:0!important;max-width:100%!important;box-sizing:border-box!important}
+
+@media(max-width:700px){
+  :is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel{overflow-x:auto!important}
+  :is(.route-my,.route-myupdate,.route-mycar,.route-mypass,.route-myfaqlist) .route-panel table{min-width:680px!important}
+  .route-myupdate .route-panel{overflow-x:hidden!important}
+  .route-myupdate .route-panel>table{width:100%!important;min-width:0!important;max-width:100%!important;margin:18px auto!important;table-layout:fixed!important}
+  .route-myupdate .route-panel table th,
+  .route-myupdate .route-panel table td{padding:10px 8px!important;white-space:normal!important;overflow-wrap:anywhere!important}
+  .route-myupdate .route-panel table input.form-control{width:100%!important;min-width:0!important;box-sizing:border-box!important}
+}
+/* 사이트 전체 화면에서 함께 사용하는 기본 스타일입니다. */

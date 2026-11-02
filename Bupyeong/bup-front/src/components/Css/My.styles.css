@@ -1,0 +1,42 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid #ddd;
+    margin: 30px auto;
+    text-align: center;
+}
+.my-profile-page{max-width:850px;margin:0 auto}.profile-summary{display:flex;align-items:center;gap:18px;margin-bottom:20px;padding:25px;color:#fff;background:linear-gradient(135deg,#523824,#76543c);border-radius:20px;box-shadow:0 12px 28px rgba(82,56,36,.18)}.profile-avatar{display:grid;place-items:center;width:72px;height:72px;color:#45651f;background:#f2f6e8;border:5px solid rgba(255,255,255,.24);border-radius:50%;font-size:2rem;font-weight:900}.profile-summary span{color:#e8d8c5;font-size:.7rem;font-weight:900;letter-spacing:.15em}.profile-summary h2{margin:4px 0;color:#fff!important;font-weight:900}.profile-summary p{margin:0;color:rgba(255,255,255,.78)}.profile-table-card{padding:8px 20px 20px;background:#fffdf8;border:1px solid #e4d5c2;border-radius:18px;box-shadow:0 8px 24px rgba(72,48,29,.07)}
+
+#login_type {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+input,
+select {
+    text-align: center;
+    padding: 5px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button-container button {
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #55771f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

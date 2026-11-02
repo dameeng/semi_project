@@ -1,0 +1,158 @@
+
+.parking-guide-wrapper {
+  width: 100%;
+    max-width: 1180px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+/* 상단 헤더 */
+.page-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  letter-spacing: 0.01em;
+}
+
+/* 공통 카드 */
+.guide-card,
+.fee-card,
+.process-card,
+.contact-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 26px 28px;
+  margin-bottom: 18px;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+
+.guide-list {
+  list-style-type: disc;
+  padding-left: 22px;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+.guide-list li {
+  margin-bottom: 12px;
+}
+
+/* 중요 안내 박스 */
+.notice-box {
+  background: #fff5f5;
+  border: 1px solid #f5c2c2;
+  border-left: 5px solid #c00;
+  padding: 22px 26px;
+  margin-bottom: 18px;
+}
+
+.notice-title {
+  color: #c00;
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.notice-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+  line-height: 1.9;
+  color: #900;
+}
+
+.notice-list li {
+  margin-bottom: 12px;
+}
+
+/* 이용안내 / 이용제한 2단 그리드 */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 신청 절차 - 가로 흐름형 */
+.step-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cfdbb3;
+  border-radius: 14px;
+  padding: 18px 12px;
+  min-width: 90px;
+  flex: 1;
+  background: #f5f8ec;
+}
+
+.step-num {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #55771f;
+  margin-bottom: 8px;
+}
+
+.step-text {
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+
+.step-arrow {
+  font-size: 1.1rem;
+  color: #999;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .step-flow {
+    flex-direction: column;
+  }
+
+  .step-arrow {
+    transform: rotate(90deg);
+  }
+
+  .step-item {
+    width: 100%;
+  }
+}

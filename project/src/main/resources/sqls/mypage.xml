@@ -1,0 +1,166 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.project.dao.MyPageDao">
+
+<!--1. 내 정보 조회 (ID 기반) -->
+    <select id="getMember" parameterType="String" resultType="com.mbc.project.dto.MemberDto">
+        SELECT seq, id, pw, name, email, carTypes, carNum, storeNum, auth
+        FROM usermember
+        WHERE id = #{id}
+    </select>
+    
+	<!--2. 내 정보 수정 -->
+   <update id="updateMember" parameterType="com.mbc.project.dto.MemberDto">
+    UPDATE usermember
+    <set>
+        <if test="id != null and id != ''">
+            id = #{id},
+        </if>
+        <if test="pw != null and pw != ''">
+            pw = #{pw},
+        </if>
+        <if test="name != null and name != ''">
+            name = #{name},
+        </if>
+        <if test="email != null and email != ''">
+            email = #{email},
+        </if>
+        <if test="carNum != null">
+            carNum = #{carNum},
+        </if>
+        <if test="carTypes != null">
+            carTypes = #{carTypes}
+        </if>
+    </set>
+    WHERE seq = #{seq}
+</update>
+
+	<!-- 3. 내 차량 위치 조회 (현재 주차 중인 상태만 조회) -->
+	<!-- 수정: 파라미터는 로그인 id이므로 usermember 서브쿼리로 실제 carNum으로 변환 후 조회 -->
+    <select id="getCarLocation" parameterType="string" resultType="com.mbc.project.dto.CarLocationDto">
+        SELECT carNum, parkingFloor, entryTime, parkingZone
+        FROM parking_records
+        WHERE carNum = (
+            SELECT carNum FROM usermember WHERE id = #{id}
+        )
+          AND exitTime IS NULL
+        ORDER BY entryTime DESC
+        LIMIT 1
+    </select>
+    
+    <!-- 4. 내 차량, 정기권 정보 조회-->
+    <select id="getMyCar" parameterType="string" resultType="com.mbc.project.dto.MyCarDto">
+  
+   SELECT 
+        u.id AS id,
+        u.carNum AS carNum,
+        u.carTypes AS carTypes,
+        -- 1. 차량 번호 존재 여부
+        CASE 
+            WHEN u.carNum IS NOT NULL AND u.carNum != '' THEN true 
+            ELSE false 
+        END AS hasCar,
+        -- 2. 오늘 날짜가 정기권 기간 내(startDate ~ endDate)에 들어오는지 체크
+        CASE 
+            WHEN p.regId IS NOT NULL AND CURRENT_DATE BETWEEN p.startDate AND p.endDate THEN true 
+            ELSE false 
+        END AS isPrepaid,
+        p.startDate AS startDate,
+        p.endDate AS endDate
+    FROM usermember u
+    LEFT JOIN prepaid p ON u.carNum = p.carNum 
+    					AND p.status = 'APPROVED'
+                        AND CURRENT_DATE BETWEEN p.startDate AND p.endDate
+    WHERE u.id = #{id}
+    LIMIT 1
+     
+     
+    </select>
+    
+	<!-- 5 & 6. 차량 등록 / 변경 -->
+    <update id="updateCarNum">
+        UPDATE usermember
+        SET carNum = #{carNum},
+        	carTypes = #{carTypes}
+        WHERE id = #{id}
+    </update>
+    
+    <!-- 7. 차량 삭제 (NULL 처리) -->
+    <update id="deleteCarNum" parameterType="string">
+        UPDATE usermember
+        SET carNum = NULL
+        WHERE id = #{id}
+    </update>
+
+	<!--8. 주차 시간, 비용 계산-->
+	<select id="parkingCost" parameterType="string" resultType="com.mbc.project.dto.ParkingRecordDto">
+	select
+  		 p.recordid AS "recordId",
+        p.carnum AS "carNum",
+        p.entrytime AS "entryTime",
+        NOW()::timestamp AS "exitTime",
+        FLOOR(EXTRACT(EPOCH FROM (NOW() - p.entrytime)) / 60) AS totalMin,
+        
+        -- 요금 정책 데이터
+        f.graceperiod AS gracePeriod,
+        f.basetime AS baseTime,
+        f.basefee AS baseFee,
+        f.extratime AS extraTime,
+        f.extrafee AS extraFee,
+        f.dailymax AS dailyMax,
+        
+        -- 상가 할인 총합
+        COALESCE((
+            SELECT SUM(freemin) 
+            FROM store_discounts 
+            WHERE recordid = p.recordid
+        ), 0) AS "storeDiscountMin",
+
+        -- [prepaid 테이블 반영] 정기권 유효 여부 (유효하면 true, 아니면 false)
+        EXISTS (
+            SELECT 1 
+            FROM prepaid pr 
+            WHERE pr.carnum = p.carnum 
+              AND CURRENT_DATE BETWEEN pr.startdate AND pr.enddate
+              AND pr.status = 'approved'
+        ) AS "isPass"
+
+    FROM parking_records p
+    CROSS JOIN (
+        SELECT graceperiod, basetime, basefee, extratime, extrafee, dailymax 
+        FROM fee_policies 
+        ORDER BY policyid DESC 
+        LIMIT 1
+    ) f
+    WHERE p.carnum = (
+        SELECT carnum FROM usermember WHERE id = #{id}
+    )
+    AND p.exittime IS NULL
+    ORDER BY p.entrytime DESC
+    LIMIT 1
+</select>
+
+    <!-- 9. 오늘 기준 주차중 여부 확인 (내정보수정 - 차량번호 변경 가능 여부 체크용) -->
+    <select id="isCurrentlyParked" parameterType="string" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1
+            FROM parking_records
+            WHERE carNum = #{carNum}
+              AND exitTime IS NULL
+              AND entryTime::date = CURRENT_DATE
+        )
+    </select>
+
+    <!-- 10. 현재 유효한 정기권 보유 여부 확인 (내정보수정 - 차량번호 변경 가능 여부 체크용) -->
+    <select id="hasActivePrepaid" parameterType="string" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1
+            FROM prepaid
+            WHERE carNum = #{carNum}
+              AND status = 'approved'
+              AND CURRENT_DATE BETWEEN startDate AND endDate
+        )
+    </select>
+
+</mapper>

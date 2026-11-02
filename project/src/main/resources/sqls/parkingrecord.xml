@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.project.dao.ParkingRecordDao">
+
+    <!-- 1. 전체 조회 (carTypes 필드 제거 및 대소문자 매핑용 AS 보완) -->
+    <select id="allparkingrecords"
+        resultType="com.mbc.project.dto.ParkingRecordDto">
+        SELECT
+            recordid        AS "recordId",
+            carnum          AS "carNum",
+            parkingfloor    AS "parkingFloor",
+            entrytime       AS "entryTime",
+            exittime        AS "exitTime",
+            totalmin        AS "totalMin",
+            rawfee          AS "rawFee",
+            discountfee     AS "discountFee",
+            finalfee        AS "finalFee",
+            parkingtype     AS "parkingType"
+        FROM parking_records
+        ORDER BY recordid DESC
+    </select>
+
+    <!-- 2. 차량번호 조회 (carTypes 필드 제거 및 대소문자 매핑용 AS 보완) -->
+    <select id="findbycarnum"
+        parameterType="String"
+        resultType="com.mbc.project.dto.ParkingRecordDto">
+        SELECT
+            recordid        AS "recordId",
+            carnum          AS "carNum",
+            parkingfloor    AS "parkingFloor",
+            entrytime       AS "entryTime",
+            exittime        AS "exitTime",
+            totalmin        AS "totalMin",
+            rawfee          AS "rawFee",
+            discountfee     AS "discountFee",
+            finalfee        AS "finalFee",
+            parkingtype     AS "parkingType"
+        FROM parking_records
+        WHERE carnum = #{carNum}
+        ORDER BY entrytime DESC
+    </select>
+
+    <!-- 3. 입차 등록 (useGeneratedKeys 설정으로 자동증가 PK 반환 유도 및 carTypes 제거) -->
+    <insert id="addparkingrecord"
+        parameterType="com.mbc.project.dto.ParkingRecordDto"
+        useGeneratedKeys="true" keyProperty="recordId" keyColumn="recordid">
+        INSERT INTO parking_records
+        (
+            carnum,
+            parkingfloor,
+            entrytime,
+            parkingtype
+        )
+        VALUES
+        (
+            #{carNum},
+            #{parkingFloor},
+            #{entryTime},
+            COALESCE(#{parkingType}, 'general')
+        )
+    </insert>
+
+    <!-- 4. 출차 처리 -->
+    <update id="exitparking"
+        parameterType="com.mbc.project.dto.ParkingRecordDto">
+        UPDATE parking_records
+        SET
+            exittime = #{exitTime},
+            totalmin = #{totalMin},
+            rawfee = #{rawFee},
+            discountfee = #{discountFee},
+            finalfee = #{finalFee}
+        WHERE recordid = #{recordId}
+    </update>
+
+    <!-- 5. 주차기록 ID 단건 상세 조회 (정산 수식 필수 연동 메서드) -->
+    <select id="findByRecordId" parameterType="long" resultType="com.mbc.project.dto.ParkingRecordDto">
+        SELECT
+            recordid        AS "recordId",
+            carnum          AS "carNum",
+            parkingfloor    AS "parkingFloor",
+            entrytime       AS "entryTime",
+            exittime        AS "exitTime",
+            totalmin        AS "totalMin",
+            rawfee          AS "rawFee",
+            discountfee     AS "discountFee",
+            finalfee        AS "finalFee",
+            parkingtype     AS "parkingType"
+        FROM parking_records
+        WHERE recordid = #{recordId}
+    </select>
+
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.project.dao.FaqDao">
+
+    <!-- FAQ 전체 조회 (seq 별칭 포함) -->
+    <select id="faqlist" resultType="com.mbc.project.dto.FaqDto">
+        SELECT
+            faqid,
+            faqid AS seq,
+            title,
+            content,
+            id,
+            wdate,
+            0 AS readcount,
+            false AS ispinned
+        FROM faq
+        ORDER BY faqid DESC
+    </select>
+
+    <!-- FAQ 상세 조회 -->
+    <select id="getfaq" parameterType="int" resultType="com.mbc.project.dto.FaqDto">
+        SELECT
+            faqid,
+            faqid AS seq,
+            title,
+            content,
+            id,
+            wdate,
+            0 AS readcount,
+            false AS ispinned
+        FROM faq
+        WHERE faqid = #{faqid}
+    </select>
+
+    <!-- FAQ 등록 -->
+    <insert id="addfaq" parameterType="com.mbc.project.dto.FaqDto">
+        INSERT INTO faq (
+            title,
+            content,
+            id
+        )
+        VALUES (
+            #{title},
+            #{content},
+            #{id}
+        )
+    </insert>
+
+    <!-- FAQ 수정 -->
+    <update id="updatefaq" parameterType="com.mbc.project.dto.FaqDto">
+        UPDATE faq
+        SET
+            title = #{title},
+            content = #{content}
+        WHERE faqid = #{faqid}
+    </update>
+
+    <!-- FAQ 삭제 -->
+    <delete id="deletefaq" parameterType="int">
+        DELETE FROM faq
+        WHERE faqid = #{faqid}
+    </delete>
+
+</mapper>

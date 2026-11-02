@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mbc.project.dao.AdminDashboardDao">
+
+    <!-- 1. 층별 주차 현황 조회 (parking_spots 기준) -->
+    <select id="getFloorParkingCount" resultType="map">
+        SELECT 
+            parkingFloor AS floor,
+            COUNT(recordId) AS count
+        FROM parking_spots
+        WHERE recordId IS NOT NULL
+        GROUP BY parkingFloor
+        ORDER BY parkingFloor ASC
+    </select>
+
+    <!-- 2. 월별 매출액 조회 (parking_records 기준) -->
+    <select id="getMonthlySales" resultType="map">
+        SELECT 
+            TO_CHAR(exitTime, 'MM') || '월' AS month,
+            COALESCE(SUM(finalFee), 0) AS sales
+        FROM parking_records
+        WHERE exitTime IS NOT NULL
+        GROUP BY TO_CHAR(exitTime, 'MM')
+        ORDER BY month ASC
+    </select>
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mbc.project.dao.OwnerDiscountDao">
+
+    <select id="findStoreNumByOwnerId" parameterType="String" resultType="Integer">
+        SELECT storeNum FROM usermember WHERE id = #{id}
+    </select>
+
+    <select id="findActiveRecordByCarNum" parameterType="String" resultType="Long">
+        SELECT recordId
+        FROM parking_records
+        WHERE carNum = #{carNum}
+          AND exitTime IS NULL
+        ORDER BY entryTime DESC
+        LIMIT 1
+    </select>
+
+    <select id="countDuplicate" resultType="int">
+        SELECT COUNT(*)
+        FROM store_discounts
+        WHERE recordId = #{recordId} AND storeNum = #{storeNum}
+    </select>
+
+    <insert id="insertDiscount">
+        INSERT INTO store_discounts (recordId, storeNum, freeMin, id, createdAt)
+        VALUES (#{recordId}, #{storeNum}, #{freeMin}, #{id}, CURRENT_TIMESTAMP)
+    </insert>
+
+    <select id="selectDiscountHistory" parameterType="Integer" resultType="com.mbc.project.dto.OwnerDiscountDto">
+        SELECT sd.discountId, sd.recordId, sd.storeNum, sd.freeMin, sd.id, sd.createdAt,
+               pr.carNum, pr.entryTime
+        FROM store_discounts sd
+        JOIN parking_records pr ON sd.recordId = pr.recordId
+        WHERE sd.storeNum = #{storeNum}
+        ORDER BY sd.createdAt DESC
+    </select>
+
+</mapper>

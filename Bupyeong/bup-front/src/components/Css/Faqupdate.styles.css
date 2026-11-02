@@ -1,0 +1,10 @@
+
+.faq-form-page { width: 90%; width: 100%;
+    max-width: 1000px; margin: 30px auto; text-align: center; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border: 1px solid #bbb; }
+th { width: 130px; }
+input[type="text"], textarea { width: 100%; padding: 10px; box-sizing: border-box; }
+textarea { min-height: 250px; resize: vertical; }
+.button-area { margin-top: 20px; }
+button { margin: 3px; padding: 7px 12px; }

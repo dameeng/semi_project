@@ -1,0 +1,278 @@
+/* 회원가입 페이지 전용 디자인 코드를 여기에 다 적습니다 */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+ 
+.signup-container h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+ 
+table {
+  width: 500px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ 
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+ 
+th {
+  background-color: #f8f9fa;
+  text-align: left;
+  width: 130px;
+}
+ 
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+ 
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #42b983;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+ 
+input[type="button"]:hover {
+  background-color: #3aa876;
+}
+/* 전체 화면 중앙 정렬 */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+ 
+/* 테이블과 로고를 한 덩어리로 묶어주는 박스 (테이블 폭과 동일하게 맞춤) */
+.form-wrapper {
+  width: 450px; /* 테이블 크기에 맞춤 */
+  display: flex;
+  flex-direction: column;
+}
+ 
+/* 🟢 네이버 스타일 작은 로고 설정 */
+.logo-box {
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  margin-bottom: 15px;
+}
+ 
+.logo-box img {
+  width: 95px;  /* 네이버처럼 쪼만하게 크기 축소! */
+  height: auto;
+}
+ 
+/* 회원 유형은 한 줄에서 나란히 선택합니다. */
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.member-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 7px;
+  margin: 0;
+  padding: 9px 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff9ed;
+  border: 1px solid #e1d0bb;
+  border-radius: 10px;
+}
+ 
+.member-type input {
+  margin: 0;
+  accent-color: #55771f;
+}
+/* 회원가입 화면의 입력 영역과 버튼을 꾸밉니다. */
+ 
+/* ========================================
+   회원가입 폼 컴팩트 레이아웃
+======================================== */
+.signup-container.signup-container {
+  --signup-input-width: 400px;
+  --signup-input-height: 34px;
+  width: 700px !important;
+  max-width: calc(100% - 30px) !important;
+  margin: 20px auto !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+}
+ 
+.signup-container.signup-container .form-wrapper,
+.signup-container.signup-container .center {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+ 
+.signup-container.signup-container table {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  table-layout: auto !important;
+}
+ 
+.signup-container.signup-container table th {
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+  padding: 8px 10px !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+ 
+.signup-container.signup-container table td {
+  height: 48px !important;
+  padding: 6px 10px !important;
+  vertical-align: middle !important;
+}
+ 
+.signup-container.signup-container table .form-control,
+.signup-container.signup-container table .form-select {
+  display: block !important;
+  width: var(--signup-input-width) !important;
+  min-width: var(--signup-input-width) !important;
+  max-width: var(--signup-input-width) !important;
+  min-height: var(--signup-input-height) !important;
+  height: var(--signup-input-height) !important;
+  margin: 0 auto !important;
+  padding: 5px 8px !important;
+  box-sizing: border-box !important;
+  font-size: 13px !important;
+  text-align: center !important;
+}
+ 
+/* 아이디 입력창과 확인 버튼을 같은 줄에 배치합니다. */
+.signup-container.signup-container table td:has(> #id) {
+  display: grid !important;
+  grid-template-columns: var(--signup-input-width) auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: auto !important;
+}
+ 
+.signup-container.signup-container table td:has(> #id) > br {
+  display: none !important;
+}
+ 
+.signup-container.signup-container #id {
+  width: var(--signup-input-width) !important;
+  min-width: var(--signup-input-width) !important;
+  max-width: var(--signup-input-width) !important;
+  height: var(--signup-input-height) !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+}
+ 
+.signup-container.signup-container #id_chk_btn {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  min-height: 34px !important;
+  padding: 6px 10px !important;
+  white-space: nowrap !important;
+}
+ 
+.signup-container.signup-container #idcheck {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  text-align: center !important;
+}
+ 
+.signup-container.signup-container .user {
+  justify-content: center !important;
+  gap: 10px !important;
+}
+ 
+.signup-container.signup-container .member-type {
+  flex: 0 1 150px !important;
+  padding: 6px 8px !important;
+}
+ 
+.signup-container.signup-container input[type="button"] {
+  width: auto !important;
+  min-width: 120px !important;
+  padding: 8px 18px !important;
+  font-size: 14px !important;
+}
+.signup-container table tr.carnumber {
+  display: table-row !important;
+}
+
+.signup-container table tr.carnumber > th,
+.signup-container table tr.carnumber > td {
+  display: table-cell !important;
+  vertical-align: middle !important;
+}
+
+.signup-container table tr.carnumber > th {
+  white-space: nowrap !important;
+}
+
+.car-register-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.car-register-option input {
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+
+.signup-container table td:has(> .car-register-option) {
+  text-align: center !important;
+}
+
+.signup-container table tr.cartype > td {
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+.signup-container table tr.cartype input[type="checkbox"] {
+  margin: 0 2px 0 0 !important;
+}
+
+.signup-container table tr.cartype input[type="checkbox"] + label {
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+}
+
+.signup-container table tr.cartype input[type="checkbox"]:last-of-type + label {
+  margin-right: 0;
+}

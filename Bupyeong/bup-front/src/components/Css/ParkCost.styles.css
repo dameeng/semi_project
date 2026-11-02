@@ -1,0 +1,126 @@
+#div1 {
+    width: 100%;
+    max-width: 1180px;
+    text-align: center;  
+    height: auto;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #e4d5c2;
+}
+
+/* 제목과 요금표는 기존처럼 왼쪽 정렬 */
+#div1 > h1,
+#div1 > h4,
+#div1 > h6,
+#div1 > table {
+    text-align: left;
+}
+
+/* 주차장 소개(h2) 제목 바와 같은 높이 */
+#div1 > h1:first-child {
+    font-size: 1.9rem !important;
+    line-height: 1.2 !important;
+}
+
+#div1 > h1:first-child::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* 정기권 이용요금 행의 항목과 금액을 가운데 정렬 */
+#div1 > table tbody tr:first-child > * {
+    text-align: center !important;
+}
+
+/* 하단 바로가기 버튼을 가운데에 나란히 배치 */
+#div1 > button {
+    margin: 0 5px;
+}
+
+#textbox {
+    border: 1px solid #d8c7b1;
+    width: 100%;
+    text-align: center;
+    min-height: 60px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.free-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 18px 0;
+    padding: 19px;
+    background: #f4f7e9;
+    border: 1px solid #b9c993;
+    border-left: 6px solid #55771f;
+    border-radius: 15px;
+}
+.free-banner > span {
+    font-size: 1.8rem;
+}
+.free-banner strong {
+    color: #45651f;
+    font-size: 1.08rem;
+}
+.free-banner p {
+    margin: 3px 0 0;
+    color: #725f50;
+}
+
+.fee-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 20px 0;
+}
+.fee-summary article {
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e4d5c2;
+    border-radius: 17px;
+    box-shadow: 0 8px 22px rgba(72, 48, 29, .07);
+}
+.fee-summary small,
+.fee-summary span {
+    display: block;
+    color: #806d5e;
+}
+.fee-summary strong {
+    display: block;
+    margin: 5px;
+    color: #55771f;
+    font-size: 1.45rem;
+}
+
+.signup-notice {
+    background: #fff7e9;
+    border-radius: 14px !important;
+}
+
+.cost-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.cost-actions .btn {
+    padding: 11px 20px;
+}
+
+@media (max-width: 900px) {
+    .fee-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .fee-summary {
+        grid-template-columns: 1fr;
+    }
+    .cost-actions {
+        flex-direction: column;
+    }
+}

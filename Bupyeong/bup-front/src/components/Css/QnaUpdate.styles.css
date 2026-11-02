@@ -1,0 +1,40 @@
+
+.qna-update {
+  width: 90%;
+  width: 100%;
+    max-width: 1000px;
+  margin: 30px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #bbb;
+}
+
+th {
+  width: 150px;
+}
+
+input[type="text"],
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+}
+
+.button-area {
+  margin-top: 20px;
+  text-align: center;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+}

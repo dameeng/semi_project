@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        
+<mapper namespace="com.mbc.project.dao.StoresDao">
+
+
+    <!-- 전체 상가 조회 -->
+    <select id="allstores" resultType="com.mbc.project.dto.StoresDto">
+        select *
+        from stores
+        order by floor, storename
+    </select>
+
+    <!-- 층별 상가 조회 -->
+    <select id="storesfloor"
+            parameterType="int"
+            resultType="com.mbc.project.dto.StoresDto">
+        select *
+        from stores
+        where floor = #{floor}
+        order by storename
+    </select>
+      <!-- 3. 상가 상세 조회 -->
+    <select id="storedetail" parameterType="int"
+            resultType="com.mbc.project.dto.StoresDto">
+        SELECT
+            storeNum,
+            storeName,
+            floor,
+            id,
+            contact
+        FROM stores
+        WHERE storeNum = #{storeNum}
+    </select>
+
+    <!-- 4. 관리자가 상가 추가 -->
+    <insert id="addstore" parameterType="com.mbc.project.dto.StoresDto">
+        INSERT INTO stores (
+            storeName,
+            floor,
+            id,
+            contact
+        )
+        VALUES (
+            #{storeName},
+            #{floor},
+            #{id},
+            #{contact}
+        )
+    </insert>
+
+    <!-- 5. 관리자가 상가 수정 -->
+    <update id="updatestore" parameterType="com.mbc.project.dto.StoresDto">
+        UPDATE stores
+        SET
+            storeName = #{storeName},
+            floor = #{floor},
+            id = #{id},
+            contact = #{contact}
+        WHERE storeNum = #{storeNum}
+    </update>
+
+    <!-- 6. 관리자가 상가 삭제 -->
+    <delete id="deletestore" parameterType="int">
+        DELETE FROM stores
+        WHERE storeNum = #{storeNum}
+    </delete>
+
+</mapper>

@@ -1,0 +1,52 @@
+
+#div1 {
+    width: 100%;
+    max-width: 1180px;
+    text-align: left;  
+    height: auto;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #e4d5c2;
+
+}
+
+#divimg2 {
+    width: 100%;
+    max-width: 1000px;
+    text-align: left;
+    border: 2px none;
+    height: 400px;
+    margin: 28px auto;
+    border-radius: 22px;
+    overflow: hidden;
+    /* 테두리 밖으로 나오는 이미지 모서리를 자릅니다 */
+}
+
+/* 이미지 스타일 */
+#divimg2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+h6 {
+  font-size: 0.85rem;  /* 기존보다 살짝 줄임, 필요하면 0.85rem까지 */
+  line-height: 1.6;
+}
+
+table{
+    width: 100%;
+    max-width: 1000px;
+    border: 1px solid #e4d5c2;
+    height: 100px;
+    margin: auto auto 50px;
+}
+
+#parkli{
+    list-style: none;
+}
+.park-label{display:inline-block;margin-bottom:8px;color:#668431;font-size:.72rem;font-weight:900;letter-spacing:.16em}.park-info-page>h4{color:#523824;font-weight:800}.park-info-page>h6{max-width:850px;color:#725f50;line-height:1.8}.operation-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}.operation-cards article{display:flex;align-items:center;flex-direction:column;padding:20px;background:#fff;border:1px solid #e4d5c2;border-radius:17px;box-shadow:0 8px 22px rgba(72,48,29,.07)}.operation-cards span{font-size:1.65rem}.operation-cards strong{margin-top:6px;color:#55771f;font-size:1.35rem}.operation-cards small{color:#806d5e}.direction-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0}.direction-list li{padding:18px;color:#5e4b3e;background:#f4f7e9;border:1px solid #cbd8ab;border-radius:15px;line-height:1.6}.direction-list li::before{content:'✓';display:inline-grid;place-items:center;width:26px;height:26px;margin-right:8px;color:#fff;background:#55771f;border-radius:50%;font-weight:900}
+@media(max-width:700px){#divimg2{width:100%;height:250px}.operation-cards,.direction-list{grid-template-columns:1fr}}
+.text{
+    text-align: center;
+}

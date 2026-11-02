@@ -1,0 +1,138 @@
+.status-container {
+  width: 100%;
+    max-width: 1000px;
+  margin: 20px auto;
+  padding: 15px;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.card {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+.card-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+.card-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.info-banner, .notice-box {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.section-block {
+  margin-bottom: 25px;
+}
+.section-block h2 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.admin-block {
+  border: 2px solid #dc3545;
+  padding: 15px;
+  background-color: #fff5f5;
+}
+
+.status-tag {
+  font-weight: bold;
+}
+.status-tag.APPROVED { color: #28a745; }
+.status-tag.REQUESTED { color: #d97706; }
+.status-tag.REJECTED { color: #dc3545; }
+
+.info-table {
+  border: 1px solid #ccc;
+}
+.info-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.info-row:last-child {
+  border-bottom: none;
+}
+.info-label {
+  width: 120px;
+  background-color: #eee;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.info-content {
+  padding: 10px;
+  flex: 1;
+  font-size: 0.9rem;
+  margin-left: -40px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 0.9rem;
+  background-color: #fff;
+}
+.data-table th, .data-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+.data-table th {
+  background-color: #eee;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.btn-approve, .btn-reject {
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-approve {
+  background-color: #28a745;
+}
+.btn-approve:hover {
+  background-color: #218838;
+}
+
+.btn-reject {
+  background-color: #dc3545;
+}
+.btn-reject:hover {
+  background-color: #c82333;
+}
+
+.more-btn-area {
+  text-align: center;
+  margin-top: 10px;
+}

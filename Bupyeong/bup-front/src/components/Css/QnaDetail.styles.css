@@ -1,0 +1,72 @@
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.content-cell {
+  white-space: pre-line;
+  word-break: break-all;
+}
+
+.answer-section {
+  margin-top: 28px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.answer-header h3 {
+  margin: 0;
+}
+
+.answer-actions,
+.editor-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.answer-editor textarea {
+  resize: vertical;
+}
+
+.editor-actions {
+  margin-top: 12px;
+}
+
+.qna-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 576px) {
+  .answer-section {
+    padding: 18px;
+  }
+
+  .answer-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .answer-actions {
+    align-self: flex-end;
+  }
+}

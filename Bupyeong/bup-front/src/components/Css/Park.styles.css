@@ -1,0 +1,125 @@
+
+#div1 {
+    width: 100%;
+    text-align: left;  
+    height: auto; /* 내용에 따라 높이 조절 */
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #e4d5c2;
+}
+.parking-heading{text-align:center;margin-bottom:22px}.parking-heading p{color:#806d5e}.parking-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}.parking-summary article{display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border:1px solid #e4d5c2;border-radius:17px;box-shadow:0 8px 22px rgba(72,48,29,.07)}.parking-summary article>span{display:grid;place-items:center;width:50px;height:50px;font-size:1.6rem;background:#eef4df;border-radius:14px}.parking-summary small{display:block;color:#806d5e;font-weight:700}.parking-summary strong{display:block;color:#523824;font-size:1.35rem}.parking-board{padding:22px;background:#f7f0e5;border:1px solid #e6d7c4;border-radius:20px}.floor-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:20px}.floor-tabs button{min-width:70px;padding:9px 16px!important}.parking-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:13px}.parking-spot{position:relative;min-height:145px;padding:8px!important}.spot-type{display:inline-block;padding:4px 8px;color:#6f5a49;background:#f1e8db;border-radius:999px;font-size:.72rem;font-weight:800}
+
+/* 기본 카드 스타일 */
+.card {
+    border: 2px solid #333; /* 기본 테두리 */
+    border-radius: 20px; 
+    width: 100% !important;  
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease; /* 부드러운 색상 전환 효과 */
+}
+
+/* [추가] 상태별 카드 테두리 색상 및 효과 */
+
+/* 사용 중인 주차면 */
+.card.status-occupied {
+    border-color: #dc3545; /* Bootstrap danger color */
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.2);
+}
+
+/* 주차 가능한 면 */
+.card.status-available {
+    border-color: #55771f; /* Bootstrap primary color */
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+/* 검색된 내 차량 강조 */
+.card.status-searched {
+    border-color: #28a745; /* Bootstrap success color */
+    border-width: 3px; /* 테두리 약간 두껍게 */
+    /* 초록색 네온 사인 같은 Glow 효과 */
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.7); 
+}
+.car-search-panel{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:22px;padding:22px;background:#fff;border:1px solid #e4d5c2;border-radius:18px;box-shadow:0 8px 22px rgba(72,48,29,.07)}.car-search-panel>div{display:flex;align-items:center;gap:12px}.car-search-panel p{margin:3px 0 0;color:#806d5e}.search-symbol{display:grid;place-items:center;width:48px;height:48px;font-size:1.45rem;background:#eef4df;border-radius:14px}.search-controls{min-width:330px}.search-controls input{min-width:220px}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-body h5, 
+.card-body h6 {
+    margin: 6px 0;
+    word-break: keep-all;
+}
+
+/* 상태 텍스트 스타일 */
+.status-text {
+  font-weight: bold;
+}
+.status-occupied .status-text { color: #dc3545; }
+.status-available .status-text { color: #55771f; }
+.status-searched .status-text { color: #28a745; }
+
+/* 층 선택 버튼 스타일 활성화 상태 */
+button.active-floor {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px; 
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+button:hover {
+  background-color: #f8f9fa;
+}
+
+#icon1 {
+    width: 25px;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* 차량번호 입력창과 조회 버튼을 한 줄로 배치 */
+#div1 > div:last-child table tr:last-child td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* 차량번호 입력창 길이와 높이 조절 */
+#div1 > div:last-child input[type="text"] {
+  width: 170px;
+  height: 36px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+/* 조회 버튼을 입력창과 같은 높이로 설정 */
+#div1 > div:last-child button {
+  height: 36px;
+  flex-shrink: 0;
+}
+
+@media(max-width:900px){.parking-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.parking-summary{grid-template-columns:1fr}.parking-grid{grid-template-columns:repeat(2,1fr)}.car-search-panel{align-items:stretch;flex-direction:column}.search-controls{min-width:0}.search-controls input{min-width:0}.parking-board{padding:13px}}
+
+.parking-refresh-text {
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: #806d5e;
+  font-size: 1rem;
+}

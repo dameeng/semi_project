@@ -1,0 +1,63 @@
+
+#title1{
+ margin-top: 0;
+}
+/* 화면 중앙 배치를 위한 최상위 컨테이너 */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 40px auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 테이블 중앙 정렬 및 디자인 */
+table {
+    width: 100%;
+    width: 100%;
+    max-width: 900px; /* 테이블 너비 지정 */
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin: 0 auto; /* 수평 중앙 정렬 */
+    background-color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.my-pass-page{width: 100%;
+    max-width: 1000px;margin:0 auto}.pass-status-card{display:flex;align-items:center;gap:18px;padding:23px;color:#fff;background:linear-gradient(135deg,#355b25,#688634);border-radius:19px;box-shadow:0 12px 28px rgba(53,91,37,.18)}.pass-status-card>span{display:grid;place-items:center;width:64px;height:64px;background:#fff9ed;border-radius:18px;font-size:2rem}.pass-status-card small{display:block;color:#e5efcd}.pass-status-card strong{display:block;font-size:1.45rem}.pass-status-card p{margin:2px 0 0;color:rgba(255,255,255,.8)}.my-pass-status{display:inline-flex;padding:6px 11px;border-radius:999px;font-weight:900}.status-approved{color:#365a1b;background:#e5efd4}.status-requested{color:#985b21;background:#fff0d7}.status-rejected{color:#8f4034;background:#f9e2dd}.status-expired,.status-none{color:#6f6259;background:#eee8df}
+
+/* 상단 header 제목 스타일 */
+.header-title {
+    background-color: #f8f9fa;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+/* 본문 테이블 셀 스타일 */
+tbody th, tbody td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody th {
+    background-color: #fcfcfc;
+    width: 40%;
+    font-weight: 600;
+}
+
+tbody td {
+    width: 60%;
+}

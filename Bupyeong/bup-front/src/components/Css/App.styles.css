@@ -1,0 +1,781 @@
+
+/* ==============================
+   프로필 카드
+============================== */
+
+#card {
+  /* 내용 크기에 맞게 너비 자동 조정 */
+  width: fit-content;
+  height: auto;
+
+  margin: 0;
+  padding: 10px;
+
+  text-align: center;
+  border: none;
+}
+
+.card-buttons {
+  display: flex;
+
+  /* 버튼을 가운데 정렬 */
+  justify-content: center;
+  gap: 8px;
+}
+
+
+/* ==============================
+   헤더
+============================== */
+
+.header {
+  display: grid;
+  position: relative;
+
+  /*
+    첫 번째 칸: 로고 200px
+    두 번째 칸: 남은 공간
+  */
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 70px 50px;
+
+  width: 100%;
+  height: 120px;
+
+  /*
+    홈 화면을 화면 높이에 맞출 때
+    헤더 높이가 줄어들지 않도록 설정
+  */
+  flex-shrink: 0;
+
+  padding: 0 40px;
+
+  box-sizing: border-box;
+}
+
+
+/* ==============================
+   네비게이션
+============================== */
+
+nav {
+  grid-column: 2;
+  grid-row: 2;
+
+  position: relative;
+  z-index: 1001;
+
+  width: 100%;
+  height: 50px;
+
+  margin: 0;
+
+  background-color: white;
+  border: 1px solid black;
+
+  box-sizing: border-box;
+}
+
+
+/* 메인 카테고리 전체 */
+.maincategory {
+  position: relative;
+
+  display: flex;
+
+  /* 전체 메뉴 가운데 정렬 */
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+  box-sizing: border-box;
+}
+
+
+/* 드롭다운 메뉴 뒤쪽 흰색 배경 */
+.maincategory::after {
+  content: "";
+
+  display: none;
+
+  position: absolute;
+  top: 50px;
+  left: 0;
+
+  width: 100%;
+  height: 300px;
+
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+
+  z-index: 1000;
+}
+
+
+/* 메인 메뉴 항목 */
+.subcategory {
+  position: relative;
+
+  /*
+    모든 메뉴가 동일한 너비를 사용
+  */
+  flex: 1;
+  min-width: 0;
+
+  text-align: center;
+  list-style: none;
+}
+
+
+/* 하위 메뉴 */
+.menu {
+  display: none;
+  flex-direction: column;
+
+  position: absolute;
+
+  top: 50px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1001;
+
+  width: 100%;
+  height: 300px;
+
+  margin: 0;
+  padding: 10px 0;
+
+  list-style: none;
+
+  background-color: white;
+  border: none;
+
+  box-sizing: border-box;
+}
+
+
+/* 메인 카테고리 글자 */
+.subcategory > span {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  height: 50px;
+  padding: 0 10px;
+
+  /* 글자가 두 줄로 내려가지 않도록 설정 */
+  white-space: nowrap;
+
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+/*
+  메뉴에 마우스를 올렸고
+  menu-closed 클래스가 없을 때 하위 메뉴 표시
+*/
+.maincategory:hover:not(.menu-closed) .menu {
+  display: flex;
+}
+
+
+/*
+  메뉴에 마우스를 올렸고
+  menu-closed 클래스가 없을 때 흰색 배경 표시
+*/
+.maincategory:hover:not(.menu-closed)::after {
+  display: block;
+}
+
+
+/* 하위 메뉴 항목 */
+.menu > li {
+  padding: 10px 15px;
+
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+
+/* 하위 메뉴에 마우스를 올렸을 때 */
+.menu > li:hover {
+  background-color: aliceblue;
+}
+
+
+/* ==============================
+   로고
+============================== */
+
+.Bupyeong {
+  grid-column: 1;
+  grid-row: 1 / 3;
+
+  width: 200px;
+  height: auto;
+
+  align-self: center;
+  cursor: pointer;
+  mix-blend-mode: multiply;
+}
+
+
+/* ==============================
+   오른쪽 위 프로필
+============================== */
+
+.profile-area {
+  grid-column: 2;
+  grid-row: 1;
+
+  /* 프로필을 오른쪽 끝에 배치 */
+  justify-self: end;
+  align-self: center;
+  margin-right: 48px;
+}
+
+.hamburger-button {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  background: #fff;
+  border: 1px solid #d8c9b8;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hamburger-button span {
+  display: block;
+  width: 50%;
+  height: 2px;
+  margin: 5px auto;
+  background: #523824;
+  border-radius: 2px;
+  transition: transform .2s, opacity .2s;
+}
+
+.hamburger-button.active {
+  padding: 3px;
+}
+
+.menu-mascot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 70px 50px;
+    padding: 0 20px;
+  }
+
+  .Bupyeong {
+    width: 150px;
+  }
+
+  .profile-area {
+    margin-right: 54px;
+  }
+
+  .hamburger-button {
+    display: block;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    z-index: 1010;
+  }
+
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: min(195px, calc(100vw - 40px));
+    max-height: calc(100vh - 90px);
+    height: auto;
+    overflow-y: auto;
+    background: #f7f3ed;
+    border: 1px solid #d8c9b8;
+    border-radius: 12px;
+    box-shadow: 0 14px 30px rgba(58, 39, 24, .18);
+  }
+
+  .header-nav.mobile-open {
+    display: block;
+  }
+
+  .maincategory {
+    display: block;
+    padding: 12px;
+  }
+
+  .maincategory::after {
+    display: none !important;
+  }
+
+  .subcategory {
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e4d8ca;
+    border-radius: 10px;
+  }
+
+  .subcategory:last-child {
+    margin-bottom: 0;
+  }
+
+  .subcategory > span {
+    position: relative;
+    justify-content: flex-start;
+    height: 48px;
+    padding: 0 42px 0 18px;
+    color: #3e5f21;
+    background: #fff;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+  .subcategory > span::after {
+    content: "›";
+    position: absolute;
+    right: 18px;
+    color: #8aa454;
+    font-size: 1.35rem;
+    transition: transform .2s;
+  }
+
+  .subcategory.mobile-expanded > span::after {
+    transform: rotate(90deg);
+  }
+
+  .menu {
+    display: none !important;
+    position: static;
+    width: 100%;
+    height: auto;
+    gap: 2px;
+    padding: 7px 0 9px;
+    transform: none;
+    background: #f5f8ed;
+    border-top: 1px solid #dce6c8;
+  }
+
+  .subcategory.mobile-expanded > .menu {
+    display: flex !important;
+  }
+
+  .menu > li {
+    position: relative;
+    padding: 8px 22px 8px 38px;
+    color: #675444;
+    font-size: .92rem;
+    text-align: left;
+  }
+
+  .menu > li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    width: 5px;
+    height: 5px;
+    background: #78953f;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu > li:hover {
+    color: #36551c;
+    background: #eaf1dc;
+  }
+}
+
+@media (max-width: 620px) {
+  .header {
+    grid-template-columns: 105px 1fr;
+    padding: 0 12px;
+  }
+
+  .Bupyeong {
+    width: 105px;
+  }
+
+  .profile-area {
+    margin-right: 48px;
+    transform: scale(.88);
+    transform-origin: right center;
+  }
+
+  .hamburger-button {
+    right: 12px;
+  }
+
+  .header-nav {
+    right: 12px;
+    width: min(195px, calc(100vw - 24px));
+  }
+}
+
+
+/* ==============================
+   메인 영역 공통 설정
+============================== */
+
+main {
+  /*
+    헤더와 푸터를 제외한 남은 높이 사용
+  */
+  flex: 1;
+
+  /*
+    콘텐츠의 기본 최소 높이를 제거
+    화면보다 커지는 현상을 방지
+  */
+  min-height: 0;
+
+  position: relative;
+  z-index: 1000;
+
+  width: 100%;
+}
+
+
+/* ==============================
+   푸터
+============================== */
+
+.footer {
+  width: 100%;
+
+  /*
+    화면 크기에 맞출 때
+    푸터 높이가 줄어들지 않도록 설정
+  */
+  flex-shrink: 0;
+
+  margin-top: auto;
+  padding: 20px 40px;
+
+  background-color: white;
+  border-top: 1px solid #ddd;
+
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.footer-info p {
+  margin: 5px 0;
+
+  font-size: 14px;
+  color: #555;
+}
+
+.footer-info .company-name {
+  font-weight: bold;
+  font-size: 16px;
+
+  color: #333;
+}
+
+.footer-info .copyright {
+  margin-top: 10px;
+
+  font-size: 12px;
+  color: #888;
+}
+
+
+/* ==============================
+   헤더 네비게이션
+============================== */
+
+.header-nav {
+  grid-column: 2;
+  grid-row: 2;
+
+  position: relative;
+  z-index: 1001;
+
+  width: 100%;
+  height: 50px;
+
+  margin: 0;
+
+  background-color: white;
+  border: 1px solid black;
+
+  box-sizing: border-box;
+}
+
+
+/* ==============================
+   일반 페이지 레이아웃
+============================== */
+
+.page-layout {
+  display: grid;
+
+  /*
+    사이드바가 없는 페이지는
+    본문 하나가 전체 너비 사용
+  */
+  grid-template-columns: minmax(0, 1fr);
+
+  width: 100%;
+
+  /*
+    일반 페이지의 좌우 여백
+  */
+  padding: 0 40px;
+
+  /*
+    일반 페이지는 기존 위아래 여백 유지
+    홈에서는 .page-layout.is-home이 이 값을 변경
+  */
+  margin: 40px 0;
+
+  /*
+    일반 페이지의 기존 최소 높이
+    홈에서는 0으로 변경
+  */
+  min-height: 600px;
+
+  position: relative;
+  z-index: 1000;
+
+  box-sizing: border-box;
+}
+
+
+/* ==============================
+   홈 화면 전용 설정
+============================== */
+
+/*
+  <main>에 is-home 클래스가 추가됐을 때만 적용됩니다.
+
+  App.vue의 main 태그에는 다음 설정이 필요합니다.
+
+  :class="{
+    'has-sidebar': showSidebar && sidebarInfo,
+    'is-home': $route.name === 'home'
+  }"
+*/
+.page-layout.is-home {
+  /* 화면 전체 높이에서 고정 헤더(120px)를 제외한 영역만 사용한다. */
+  height: calc(100dvh - 120px);
+  flex: 0 0 calc(100dvh - 120px);
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Home 컴포넌트가 Grid 영역보다 커져 페이지 스크롤을 만들지 않게 한다. */
+.page-layout.is-home > * {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+
+/* ==============================
+   사이드바가 있는 페이지
+============================== */
+
+.page-layout.has-sidebar {
+  /*
+    왼쪽 사이드바 200px
+    오른쪽 본문은 남은 공간 사용
+  */
+  grid-template-columns: 200px minmax(0, 1fr);
+}
+
+
+/* 사이드바가 있는 페이지의 본문 */
+.page-layout.has-sidebar > :last-child {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.route-content { min-width:0; width:100%; }
+.route-panel { position:relative; width:100%; max-width:1180px; margin:0 auto; }
+.route-hero { position:relative; display:flex; align-items:center; justify-content:space-between; gap:24px; width:100%; max-width:1180px; min-height:220px; margin:0 auto 22px; padding:38px 46px; overflow:hidden; color:#fff; background:linear-gradient(125deg,#315722,#5d7f2b 58%,#8da64b); border:1px solid rgba(255,255,255,.2); border-radius:0 24px 48px 24px; box-shadow:0 16px 38px rgba(49,87,34,.19); }
+.route-hero::before,.route-hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}.route-hero::before{width:210px;height:210px;right:70px;top:-105px}.route-hero::after{width:150px;height:150px;right:-35px;bottom:-65px}
+.route-hero-copy{position:relative;z-index:1}.route-kicker{display:inline-block;margin-bottom:8px;color:#e7f1ca;font-size:.74rem;font-weight:900;letter-spacing:.18em}.route-hero h1{margin:0 0 8px;color:#fff!important;font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-.05em}.route-hero p{max-width:580px;margin:0 0 18px;color:rgba(255,255,255,.84)}
+.route-tags{display:flex;flex-wrap:wrap;gap:7px}.route-tags span{padding:6px 11px;color:#fff;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:.78rem;font-weight:700}
+.route-icon{position:relative;z-index:1;display:grid;place-items:center;flex:0 0 128px;width:128px;height:128px;font-size:4.6rem;background:#fff9ed;border:7px solid rgba(255,255,255,.3);border-radius:40% 60% 55% 45%;box-shadow:0 14px 28px rgba(42,57,20,.2);transform:rotate(3deg)}
+.route-icon.has-mascot{flex-basis:174px;width:174px;height:174px;background:transparent;border:0;border-radius:0;box-shadow:none;transform:none}
+.route-icon.has-mascot img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 13px 13px rgba(38,42,17,.28))}
+.route-stores .route-icon.has-mascot img{object-fit:cover}
+@media(max-width:700px){.route-hero{min-height:0;padding:27px 20px;border-radius:0 18px 34px 18px}.route-icon{flex-basis:76px;width:76px;height:76px;font-size:2.7rem;border-width:4px}.route-icon.has-mascot{flex-basis:104px;width:104px;height:104px}.route-tags{display:none}}
+
+
+/* 사이드바는 첫 번째 칸에 배치 */
+.page-sidebar {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+/* 사이드바가 있는 페이지의 본문 */
+.has-sidebar .page-content {
+  grid-column: 2;
+  grid-row: 1;
+
+  min-width: 0;
+  padding-left: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* 사이드바가 없는 페이지의 본문 */
+.page-layout:not(.has-sidebar) .page-content {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* ==============================
+   사이드바
+============================== */
+
+.sidebar {
+  width: 200px;
+  min-height: 400px;
+
+  border: 1px solid #ddd;
+  background-color: white;
+
+  box-sizing: border-box;
+}
+
+/* 마스코트 공통 헤더 테마 */
+.header {
+  background: linear-gradient(110deg, rgba(255,253,248,.98), rgba(244,247,233,.98));
+  border-bottom: 1px solid #d8c9b4;
+  box-shadow: 0 6px 20px rgba(72, 48, 29, .09);
+}
+
+.header-nav,
+nav {
+  overflow: visible;
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid #ccd7ad;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 5px 14px rgba(49, 87, 34, .07);
+}
+
+.subcategory > span {
+  color: #58341e;
+  font-weight: 800;
+  border-radius: 10px 10px 0 0;
+  transition: color .2s, background-color .2s, transform .2s;
+}
+
+.subcategory > span:hover {
+  color: #fff;
+  background: linear-gradient(120deg, #365015, #668b2d);
+  transform: translateY(-2px);
+}
+
+.maincategory::after,
+.menu {
+  background: #fffdf8;
+  border-color: #e5d8c7;
+}
+
+.menu > li {
+  color: #5c493c;
+  border-radius: 8px;
+  transition: color .2s, background-color .2s;
+}
+
+.menu > li:hover {
+  color: #365015;
+  background: #e8f0d7;
+  font-weight: 700;
+}
+
+#card {
+  background: rgba(255, 249, 237, .94);
+  border: 1px solid #dfcfb8;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(88, 52, 30, .08);
+}
+
+#card button {
+  margin: 2px;
+  padding: 5px 10px;
+  color: #fff;
+  background: #55771f;
+  border: 1px solid #55771f;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+#card button:hover { background: #365015; }
+
+.page-layout:not(.is-home) {
+  align-items: start;
+}
+
+.footer {
+  background: #f7eddb;
+  border-top-color: #decbb0;
+}
+
+.footer-info .company-name { color: #58341e; }
+.footer-info p { color: #725d4e; }
+
+@media (max-width: 900px) {
+  .header { padding: 0 16px; grid-template-columns: 145px 1fr; }
+  .Bupyeong { width: 145px; }
+  .page-layout { padding: 0 14px; }
+}
+
+/* 모바일 메뉴 너비는 기존 전체 너비의 절반 정도만 사용 */
+@media (max-width: 1100px) {
+  .header-nav {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    left: auto;
+    width: clamp(220px, 42vw, 390px);
+    height: auto;
+    margin: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .header-nav {
+    right: 12px;
+  }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mbc.project.dao.ParkingSpotDao">
+
+    <!-- 실시간 전체 주차자리 + 주차된 차량번호 조회 -->
+    <select id="selectAllSpots" resultType="com.mbc.project.dto.ParkingSpotDto">
+        SELECT 
+            s.spotId,
+            s.parkingFloor,
+            s.section,
+            s.parkingType,
+            s.recordId,
+            r.carNum
+        FROM parking_spots s 
+        LEFT JOIN parking_records r ON s.recordId = r.recordId
+        ORDER BY s.spotId ASC
+    </select>
+
+</mapper>

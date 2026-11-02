@@ -1,0 +1,49 @@
+.owner-discount-btn,
+.owner-discount-btn:hover,
+.owner-discount-btn:focus,
+.owner-discount-btn:active {
+    color: #58341e !important;
+    -webkit-text-fill-color: #58341e;
+    background-color: #fff9ed !important;
+    border: 1px solid #e4d5c2 !important;
+    box-shadow: 0 8px 24px rgba(72, 48, 29, 0.07);
+    font-size: 1.4rem;
+    font-weight: 800;
+    padding: 14px 22px;
+}
+
+.owner-discount-btn:hover {
+    background-color: #f6efe3 !important;
+    border-color: #d9c5a8 !important;
+}
+
+.owner-discount-btn:disabled {
+    color: #a99a8e !important;
+    -webkit-text-fill-color: #a99a8e;
+    background-color: #f5f0e8 !important;
+    border-color: #e2d6c5 !important;
+    box-shadow: none;
+}
+.discount {
+  width: min(100%, 520px) !important;
+  max-width: 520px !important;
+  margin: 0 auto !important;
+  padding: 24px !important;
+  box-sizing: border-box;
+}
+
+/* 할인 처리 후 나타나는 결과 메시지 창 */
+.discount + p {
+  width: fit-content !important;
+  min-width: 260px;
+  max-width: min(90%, 520px) !important;
+  margin: 14px auto 0 !important;
+  padding: 12px 20px !important;
+  color: #fff !important;
+  text-align: center;
+  background: #65452f !important;
+  border: 1px solid #4c301f !important;
+  border-radius: 10px !important;
+  box-shadow: 0 7px 16px rgba(72, 48, 29, .18) !important;
+  box-sizing: border-box;
+}

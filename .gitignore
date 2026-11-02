@@ -1,0 +1,9 @@
+*.txt
+node_modules/
+target/
+bin/
+.gradle/
+.metadata/
+build/
+.idea/
+.vscode/
